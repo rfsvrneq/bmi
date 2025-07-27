@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    @apply font-serif tracking-wide font-light text-white;
+  }
+
+  .container {
+    @apply mx-auto px-8 sm:px-0 py-10 max-w-5xl relative md:py-14;
+  }
+
+  .content-p {
+    @apply font-normal text-left tracking-wider leading-relaxed text-[20px];
+  }
+
+  .content-ttl {
+    @apply font-semibold text-[26px] xs:text-[32px] md:text-[36px] text-center;
+  }
+}
