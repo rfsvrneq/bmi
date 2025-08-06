@@ -6,7 +6,7 @@ onMounted(async () => {
   // 真實專案可改成等待 API/資源載入
   setTimeout(() => {
     isLoading.value = false;
-  }, 800);
+  }, 600);
 });
 </script>
 
@@ -33,7 +33,7 @@ onMounted(async () => {
   left: 0
   width: 100%
   height: 100%
-  background: rgba(0,0,0,0.6)
+  background: rgba(0,0,0,0.8)
   display: flex
   align-items: center
   justify-content: center

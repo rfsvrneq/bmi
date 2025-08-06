@@ -1,34 +1,64 @@
 <script setup>
 const nav = [
   {
-    title: "首頁",
+    title: "前言",
     active: false,
     type: "#kv",
-    label: "menu_首頁",
+    label: "menu_前言",
   },
   {
-    title: "前言倡議",
+    title: "肥胖地圖",
     active: false,
-    type: "#intro",
-    label: "menu_前言倡議",
+    type: "#map",
+    label: "menu_肥胖地圖",
   },
   {
-    title: "22縣市首長許諾",
+    title: "肥胖定義",
     active: false,
-    type: "#pledges",
-    label: "menu_22縣市首長許諾",
+    type: "#defn",
+    label: "menu_肥胖定義",
   },
   {
-    title: "ESG for Health",
+    title: "肥胖成因",
     active: false,
-    type: "#esg",
-    label: "menu_ESGforHealth",
+    type: "#causes",
+    label: "menu_肥胖成因",
   },
   {
-    title: "肺健康實踐",
+    title: "肥胖共病",
     active: false,
-    type: "#lund",
-    label: "menu_肺健康實踐",
+    type: "#comorb",
+    label: "menu_肥胖共病",
+  },
+  {
+    title: "體重控管",
+    active: false,
+    type: "#mgmt",
+    label: "menu_體重控管",
+  },
+  {
+    title: "專家地圖",
+    active: false,
+    type: "#experts",
+    label: "menu_專家地圖",
+  },
+  {
+    title: "影音專區",
+    active: false,
+    type: "#media",
+    label: "menu_影音專區",
+  },
+  {
+    title: "相關報導",
+    active: false,
+    type: "#reports",
+    label: "menu_相關報導",
+  },
+  {
+    title: "參考文獻",
+    active: false,
+    type: "#refs",
+    label: "menu_參考文獻",
   },
 ];
 
@@ -69,22 +99,19 @@ const moveTo = (ta) => {
 </script>
 
 <template lang="pug">
-//- top
-a#top(@click.prevent="moveTo('#kv')") 
-  img(src="/assets/img/top.svg", alt="TOP")
+//- go
+a#go(@click.prevent="moveTo('#kv')")
+  img(src="/assets/img/go.svg", alt="go")
 
 
 div#topbar(:class="['w-full fixed top-0 left-0', { scrolled: scrollActive }]")
   
-  nav.flex.justify-between.items-center.h-full.container.py-0.px-4
+  nav.flex.justify-between.items-center.h-full.container.py-0.px-4.max-w-6xl
     
     .flex.space-x-2.items-center.mr-6
       //- logo
       a.block(href="https://www.commonhealth.com.tw/", target="_blank") 
         img.w-20(src="/assets/img/logo.svg", alt="康健雜誌")
-      img(src="/assets/img/x.svg", alt="x", class="w-6 xs:w-8")
-      a.block(href="https://www.boehringer-ingelheim.com/tw", target="_blank") 
-        img.w-32(src="/assets/img/logo2.svg", alt="百靈佳殷格翰")
 
     //- 漢堡
     a.burger-trigger(href="#", :class="{ 'active': burgerTrigger == true }", @click.prevent="burgerTrigger = !burgerTrigger")
@@ -97,7 +124,7 @@ div#topbar(:class="['w-full fixed top-0 left-0', { scrolled: scrollActive }]")
       //-選單
       .nav
         .item
-          a.click_event.font-serif(
+          a.click_event(
             data-title="lungcancercare"
             v-for="(nav, index) in nav"
             :href="nav.type"
@@ -111,11 +138,11 @@ div#topbar(:class="['w-full fixed top-0 left-0', { scrolled: scrollActive }]")
 
 <style scoped lang="sass">
 
-$nav-item-a: #ffffff !default
-$nav-item-a-hover: #fef9cb !default
-$nav-wrap-bg: #444138 !default
-$burger: white !default
-$nav-wrap-bg-mobile: #2c5e59 !default
+$nav-item-a: #343a55 !default
+$nav-item-a-hover: #dd4545 !default
+$nav-wrap-bg: #ffffff !default
+$burger: #dd4545 !default
+$nav-wrap-bg-mobile: #e4b70f !default
 $nav-item-a-mobile: white !default
 $nav-item-a-hover-mobile: white !default
 
@@ -125,17 +152,17 @@ $nav-item-a-hover-mobile: white !default
   padding-bottom: 0.5rem
   height: auto
   z-index: 20
-
+  background: $nav-wrap-bg
   &.scrolled
-    background-color: rgba(#3d4b4b, 0.5)
-    backdrop-filter: blur(10px)
+    background-color: rgba(white, 1)
+    // backdrop-filter: blur(10px)
     transition: background-color .3s ease, padding .3s ease
   .item
     a
       color: $nav-item-a
-      font-weight: 600
-      font-size: 1.15rem
-      margin-left: 1.5rem
+      font-weight: 400
+      font-size: 1.075rem
+      margin-left: 1.25rem
       &:hover
         color: $nav-item-a-hover
         span
@@ -216,7 +243,7 @@ $nav-item-a-hover-mobile: white !default
           text-align: center
           width: 100%
           font-size: 1.35rem
-          margin-bottom: 1rem
+          margin-bottom: 1remt
           margin-left: 0
           padding-top: .5rem
           padding-bottom: .5rem
@@ -240,22 +267,18 @@ $nav-item-a-hover-mobile: white !default
         .last
           bottom: 10px
 
-#top
+#go
   position: fixed
   bottom: 10%
   right: 1rem
-  width: 45px
-  height: 45px
+  width: 100px
+  height: 100px
   z-index: 20
   display: flex
   justify-content: center
   align-items: center
-  background-color: #5faf74
   border-radius: 50%
   cursor: pointer
   img
-    width: 50%
-  &:hover, &:focus
-    background-color: #4a8f5f
-    transition: background-color .3s ease
+    width: 100%
 </style>

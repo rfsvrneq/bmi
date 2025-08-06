@@ -1,73 +1,94 @@
-<script setup></script>
+<script setup>
+import titleSvg from "@/assets/img/kv-title.svg";
+import imgSvg from "@/assets/img/kv-img.svg";
+const version = Date.now();
+const titleSrc = `${titleSvg}?v=${version}`;
+const imgSrc = `${imgSvg}?v=${version}`;
+</script>
 
 <template lang="pug">
-div#kv.pt-20(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
-  .clouds
-  img.block.-mt-8.z-10(src="/assets/img/kv-ttl.svg", alt="百靈佳殷格翰", class="w-11/12 sm:w-10/12 max-w-[780px]")
-  p.font-garamond.h-8(class="text-3xl sm:text-4xl" v-gsap.animateText.slow.from="{opacity: 0, delay: 0.8}") # Do one thing for Taiwan
-  .font-serif.font-semibold.px-8.tracking-wider.leading-relaxed(class="text-justify md:text-left text-xl xs:text-2xl")
-    p(class="inline md:block") 人活著離不開乾淨的空氣，但空氣卻變成潛在健康殺手。
-    p(class="inline md:block") 空污無所不在，肺癌、肺部慢性疾病時刻威脅著健康，
-    p(class="inline md:block") 環境永續健康才可永續。
+
+div#kv.overflow-hidden(class="imp_event pt-[62px]" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+  .kv
+    img.kv-title(
+      :src="titleSrc"
+      alt="BMI>=27 病得不輕?"
+    )
+    img.kv-img(
+      :src="imgSrc"
+      alt="肥胖症成因複雜，諮詢專業醫師找出健康處方"
+    )
+
+  .container.z-10
+
+    //- 前言
+    .ttl.mt-18(class="lg:mt-32")
+      div
+        img(src="/assets/img/ttl-icon.svg")
+        h2 您知道肥胖是一種慢性疾病嗎？
+
+        
+    .content-p
+      p.text-center(class="inline lg:block") 世界衛生組織 (WHO) 公佈資料顯示
+        sup 1
+        | ，全球已有超過
+        span.content-span 10億人
+      p.text-center(class="inline lg:block") 處於肥胖狀態，等於
+        span.content-span 每8個人就有1人
+        | 達肥胖標準。
+
+      p.bg-amber-300.text-white.font-light.py-6.px-14.rounded-2xl.mx-auto.my-10.space-y-2.relative.tracking-widest(class="pl-6 sm:px-14 w-11/12 sm:w-10/12")
+        span 在全球肥胖問題日益嚴峻下，這不只關乎個人的健康，
+        span(class="inline lg:block") 更是牽涉到社會、經濟以及全球公共衛生的重大挑戰。
+        img.w-32.absolute(class="-top-14 sm:-top-20 -right-12 sm:-right-10" src="/assets/img/intro-icon-1.svg")
+
+    img.w-44.absolute.-left-40.top-80.-z-10(src="/assets/img/intro-icon-2.svg")
+    img.w-9.absolute.-right-12.bottom-40(src="/assets/img/intro-icon-3.svg")
+
 </template>
 
 <style scoped lang="sass">
 @import '~/assets/sass/media.sass'
+@import '~/assets/sass/colors.sass'
 #kv
-  background: linear-gradient(180deg, #2c5e59 10%, rgba(#2c5e59, 0) 45%)
-  background-size: cover
-  height: 100vh
-  width: 100%
-  display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: space-around
-  overflow: hidden
+  background-color: $amber-200
   position: relative
-  &::before
-    content: ''
+  &::after
+    content: ""
     position: absolute
-    inset: 0
-    background: url(/assets/img/kv-bg.jpg) no-repeat center 0
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
     background-size: cover
-    z-index: -1
-    will-change: transform // GPU 加速
-    animation: kv-zoom 20s ease-in-out infinite alternate
-    animation-delay: -5s
-  +m-768
-    justify-content: space-evenly
+    background: linear-gradient(0deg, rgba($amber-200, 1) 25%, rgba($amber-200, 0) 50%)
+.kv
+  +m-1024
+    display: flex
+    flex-direction: column-reverse
+    .kv-img, .kv-title
+      width: 90%
+      max-width: 600px
+      margin-left: auto
+      margin-right: auto
+    .kv-title
+      margin-top: -30%
 
-@keyframes kv-zoom
-  from
-    transform: scale(1)
-  to
-    transform: scale(1.3)
-
-
-// 雲飄移效果
-.clouds
-  width: 100vw
-  height: 100vh
-  background: url(/assets/img/clouds_repeat.png) repeat-x
-  background-size: 50vw auto
-  background-position: center bottom
-  position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  z-index: 1
-  will-change: transform, background-position // GPU 加速
-  animation: move-background 25s linear infinite
-  animation-delay: -10s
-
-@keyframes move-background
-  0%
-    transform: translateX(0)
-    opacity: 0
-  5%
-    opacity: 1
-  95%
-    opacity: 1
-  100%
-    transform: translateX(-50vw)
+.kv-img
+  +m-1024-up
+    position: absolute
+    right: 50%
+    transform: translateX(90%)
+    top: 60px
+    z-index: 0
+    width: 750px
+.kv-title
+  +m-1024-up
+    z-index: 1
+    position: relative
+    max-width: 680px
+    left: 50%
+    top: 105px
+    transform: translateX(-85%)
 </style>

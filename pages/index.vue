@@ -7,20 +7,29 @@ import { onMounted } from "vue";
 div
   Navbar
 
-  //- 主視覺
+  //- 主視覺+前言
   Kv
 
-  //- 引言
-  Intro.overflow-x-hidden
-
-  //- 地圖
+  //- 肥胖地圖
   Map
 
-  //- ESGforHealth
-  Esg
+  //- 肥胖定義
+  defn
 
-  //- 肺健康實踐
-  Lund.overflow-x-hidden
+  //- 肥胖成因
+  causes
+
+  //- 肥胖共病
+  Comorb
+
+  //- 體重控管
+  Mgmt
+
+  //- 專家地圖
+  Experts
+
+  //- 影音專區
+  media
 
   //- FOOTER
   Footer
