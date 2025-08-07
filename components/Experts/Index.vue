@@ -115,7 +115,6 @@ const filteredItems = computed(() =>
     .ttl
       div
         img(src="/assets/img/ttl-icon.svg")
-        span 專家地圖
         h2 專科醫師地圖
 
     .content-p.mb-10

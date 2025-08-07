@@ -9,15 +9,16 @@ const imgSrc = `${imgSvg}?v=${version}`;
 <template lang="pug">
 
 div#kv.overflow-hidden(class="imp_event pt-[62px]" data-title="lunghealth" data-label="imp_section-lunghealth-home")
-  .kv
-    img.kv-title(
-      :src="titleSrc"
-      alt="BMI>=27 病得不輕?"
-    )
-    img.kv-img(
-      :src="imgSrc"
-      alt="肥胖症成因複雜，諮詢專業醫師找出健康處方"
-    )
+  client-only
+    .kv
+      img.kv-title(
+        :src="titleSrc"
+        alt="BMI>=27 病得不輕?"
+      )
+      img.kv-img(
+        :src="imgSrc"
+        alt="肥胖症成因複雜，諮詢專業醫師找出健康處方"
+      )
 
   .container.z-10
 

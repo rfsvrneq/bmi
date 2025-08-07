@@ -27,7 +27,7 @@
     @apply bg-blue-400 text-white px-4 py-1 rounded-full absolute -top-6 left-14 sm:left-10 text-lg;
   }
   .ttl h2 {
-    @apply text-amber-900 font-bold bg-white inline-block px-9 md:px-10 py-4 rounded-full border-4 border-blue-400 text-2xl xs:text-3xl md:text-[32px];
+    @apply text-amber-900 font-bold bg-white inline-block px-9 md:px-10 py-4 rounded-full border-4 border-blue-400 text-2xl xs:text-3xl md:text-[36px];
   }
 
   .ttl-t {
@@ -49,14 +49,23 @@
   .ttl-rounded {
     @apply text-center my-10 -mx-2;
   }
+  .ttl-rounded.drop {
+    @apply cursor-pointer;
+  }
   .ttl-rounded > div {
     @apply relative inline-block;
   }
   .ttl-rounded h3 {
-    @apply text-blue-400 font-bold bg-white inline-block px-10 py-4 rounded-full border-4 border-blue-400 text-xl xs:text-2xl md:text-[30px] leading-tight md:leading-normal;
+    @apply text-blue-400 font-bold bg-white inline-block mt-3 lg:mt-0 px-10 py-4 rounded-full border-4 border-blue-400 text-xl xs:text-2xl md:text-[30px] leading-tight md:leading-normal;
   }
-  .ttl-rounded img {
+  .ttl-rounded.drop h3 {
+    @apply hover:text-red-500 mr-12;
+  }
+  .ttl-rounded > div img:nth-child(1) {
     @apply absolute h-[105%] -top-[2.5%] -left-1;
+  }
+  .ttl-rounded > div img:nth-child(3) {
+    @apply absolute h-[105%] -top-[2.5%] right-0;
   }
 
   .content-p {
@@ -75,6 +84,7 @@
 
   .ttl-rounded .sup {
     font-size: 0.75rem;
-    top: -1rem;
+    top: -0.55rem;
+    right: 0.1rem;
   }
 }

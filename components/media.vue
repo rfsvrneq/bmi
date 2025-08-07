@@ -11,10 +11,7 @@ div#media.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_
 
       //- iframe.aspect-video.w-full.max-w-4xl.mx-auto(src="https://www.youtube.com/embed/BI8LWVA7tGU?si=UoYpffVU86eXhTJg", title="YouTube video player", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", referrerpolicy="strict-origin-when-cross-origin", allowfullscreen)
 
-    //- 影音專區
-    .text-center.my-10
-      .rounded-btn
-        p 相關報導
+    
 
 
 </template>

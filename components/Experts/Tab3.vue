@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from "vue";
+// import { defineProps } from "vue";
 // 引入醫師圖片
 import maleIcon from "@/assets/img/tab-male.svg";
 import femaleIcon from "@/assets/img/tab-female.svg";

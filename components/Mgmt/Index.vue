@@ -46,18 +46,22 @@ const tabComponents = {
     .ttl
       div
         img(src="/assets/img/ttl-icon.svg")
-        span 體重控管
         h2 關於體重管理，除了少吃多動還可以做什麼？
 
     .content-p
-      p(class="tracking-[-.4px]") 根據台灣肥胖醫學會 2022 年「全台肥胖認知調查」，正在減重的人僅有 14.7% 尋求專業醫師協助。
-      p.my-4(class="tracking-[-.7px]") 隨著全球各國逐漸認定肥胖為慢性病，英國與日本也逐步將相關藥物納入給付。適時的藥物介入在體重管理中的角色逐漸被肯定；
-        span.text-blue-400 改變生活型態與飲食習慣的同時，藥物除了能輔助性的改善體重與健康，更可增加信心，讓對抗肥胖之路不再困難重重！
+      p(class="tracking-[-.4 px]") 根據台灣肥胖醫學會 2022 年「全台肥胖認知調查」，正在減重的人僅有 14.7% 尋求專業醫師協助。隨著全球各國逐漸認定肥胖為慢性病，英國與日本也逐步將相關藥物納入給付。適時的藥物介入在體重管理中的角色逐漸被肯定；
+        span.text-red-500 改變生活型態與飲食習慣的同時，藥物除了能輔助性的改善體重與健康，更可增加信心，讓對抗肥胖之路不再困難重重！
+
+    .quotation.max-w-4xl.mx-auto
+      .content-p.text-white
+        span.top ”
+        p 肥胖症成因複雜，別再認為對抗肥胖失敗等於沒有意志力，食慾、脂肪堆積可能無法靠自己控制，諮詢專業醫師，討論專屬您的健康處方！
+        span.bottom ”
 
     .text-center.my-10
       .rounded-btn.text-2xl
         p 台灣衛福部核准之體重管理藥物與手術
-      p.text-base.mt-6.mb-10 請注意，體重管理的藥物與手術治療因人而異，請務必諮詢專業醫師，量身訂製您的體重管理計畫。
+      p.text-lg.mt-6.mb-10 請注意，體重管理的藥物與手術治療因人而異，請務必諮詢專業醫師，量身訂製您的體重管理計畫。
 
 
     //- TAB
@@ -129,4 +133,50 @@ const tabComponents = {
   opacity: 0
 .fade-enter-to, .fade-leave-from
   opacity: 1
+
+
+.quotation
+  padding: 1.25rem
+  background-color: white
+  border-radius: 1.25rem
+  border: 3px solid $blue-400
+  position: relative
+  margin-top: 2rem
+  &::before
+    content: ''
+    background: url('/assets/img/quotation.svg')
+    background-repeat: no-repeat
+    background-size: cover
+    width: 55px
+    height: 35px
+    position: absolute
+    top: -2.2rem
+    right: 1rem
+    color: white
+    font-size: 2rem
+  &::after
+    content: ''
+    background: url('/assets/img/point.svg')
+    background-repeat: no-repeat
+    background-size: contain
+    position: absolute
+    width: 30px
+    height: 120px
+    right: -2.5rem
+    top: 0
+  .content-p
+    background-color: $blue-400
+    border-radius: 1.25rem
+    padding: 3rem 1.25rem
+    position: relative
+
+  .top, .bottom
+    color: $cyan-200
+    font-size: 5rem
+    position: absolute
+  .top
+    top: 2rem
+  .bottom
+    bottom: -1rem
+    right: -2rem
 </style>

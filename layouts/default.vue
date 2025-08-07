@@ -6,7 +6,7 @@ onMounted(async () => {
   // 真實專案可改成等待 API/資源載入
   setTimeout(() => {
     isLoading.value = false;
-  }, 600);
+  }, 800);
 });
 </script>
 
@@ -33,7 +33,7 @@ onMounted(async () => {
   left: 0
   width: 100%
   height: 100%
-  background: rgba(0,0,0,0.8)
+  background: #e1d6c1
   display: flex
   align-items: center
   justify-content: center
@@ -42,7 +42,7 @@ onMounted(async () => {
 .spinner
   width: 48px
   height: 48px
-  border: 4px solid rgba(255,255,255,0.3)
+  border: 4px solid #bca779
   border-top-color: #fff
   border-radius: 50%
   animation: spin 1s linear infinite

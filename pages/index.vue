@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from "vue";
-// import Slide from "@/components/Slide/index.vue";
+import Slide from "@/components/Slide/index.vue";
 </script>
 
 <template lang="pug">
@@ -31,10 +31,10 @@ div
   //- 影音專區
   media
 
+  Slide
+
   //- FOOTER
   Footer
 
 
 </template>
-
-<style scoped lang="sass"></style>

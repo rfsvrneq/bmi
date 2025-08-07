@@ -20,7 +20,7 @@
         opacity: 0;
         will-change: transform, clip-path, opacity;
         animation: slideUp 1s cubic-bezier(0.6, -0.28, 0.735, 0.045)
-                  calc(var(--i) * 0.35s + 1.35s)
+                  calc(var(--i) * 0.35s + .51s)
                   both;
       }
 
