@@ -101,7 +101,7 @@
       .icons {
         will-change: clip-path;
         clip-path: circle(0 at 50% 100%);
-        animation: revealCircleFade 2s ease-out .25s forwards;
+        animation: revealCircleFade 2s ease-out .75s forwards;
         opacity: 0;
       }
       /* 往上拉裁切邊界 */

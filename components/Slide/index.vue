@@ -40,7 +40,7 @@ const slides = [
 </script>
 
 <template>
-  <div class="bg-cyan-100" id="reports">
+  <div class="bg-cyan-200" id="reports">
     <div
       class="container max-w-5xl imp_event pb-0"
       id="slide"
@@ -113,7 +113,7 @@ const slides = [
                 class="slide-img"
                 :style="{ backgroundImage: 'url(' + slide.imgSrc + ')' }"
               ></div>
-              <p class="bg-cyan-200 text-left p-3">
+              <p class="bg-cyan-500 text-left p-3">
                 <span class="line-clamp-2">{{ slide.title }}</span>
                 <span class="block text-sm text-right text-white">more ›</span>
               </p>

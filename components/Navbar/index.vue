@@ -100,7 +100,7 @@ const moveTo = (ta) => {
 
 <template lang="pug">
 //- go
-a#go(@click.prevent="moveTo('#kv')")
+a#go(@click.prevent="moveTo('#experts')")
   img(src="/assets/img/go.svg", alt="go")
 
 
@@ -137,6 +137,7 @@ div#topbar(:class="['w-full fixed top-0 left-0', { scrolled: scrollActive }]")
 </template>
 
 <style scoped lang="sass">
+@import '~/assets/sass/media.sass'
 
 $nav-item-a: #343a55 !default
 $nav-item-a-hover: #dd4545 !default
@@ -270,15 +271,26 @@ $nav-item-a-hover-mobile: white !default
 #go
   position: fixed
   bottom: 10%
-  right: 1rem
-  width: 100px
-  height: 100px
+  right: 5%
+  width: 140px
+  height: 140px
   z-index: 20
   display: flex
   justify-content: center
   align-items: center
   border-radius: 50%
   cursor: pointer
+  box-shadow: 4px 6px 8px rgba(black, .2)
+  transition: all ease .1s
   img
     width: 100%
+    border-radius: 50%
+    overflow: hidden
+  &:hover
+    border: 4px solid white
+  +m-768
+    width: 100px
+    height: 100px
+    bottom: .5rem
+    right: .5rem
 </style>

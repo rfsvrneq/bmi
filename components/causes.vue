@@ -7,7 +7,13 @@ const toggleClamp = (event) => {
 
 <template lang="pug">
 div#defn.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
-  .container
+
+  //- 背景曲線
+  .w-full.h-20
+    img.fit(src="/assets/img/wave-2.svg")
+
+
+  .container.pt-0
 
     //- 肥胖成因
     .ttl
@@ -34,8 +40,10 @@ div#defn.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_s
           p(class="tracking-[-1px]") 舉例來說，我們常聽到的
             span.text-red-500 「腸泌素」
             | 就是其中一種腸道賀爾蒙，它會向大腦傳送「飽」的訊號，大腦就會提醒我們吃飽了。缺少腸泌素，就像手機沒有網路，訊息無法傳遞，大腦會以為還沒吃飽，所以就可能不小心吃太多。
-        .content-p
+        .content-p.mb-10
           p(class="tracking-[-0.5px]") 其他和調控食慾相關的腸道荷爾蒙包含 Ghrelin（胃促生長激素）、PYY（多肽YY）、CCK（膽囊收縮素）等。除了腸道荷爾蒙外，還有許多荷爾蒙掌握著我們的飢餓與飽足感，包含脂肪細胞分泌的 Leptin（瘦體素）、中樞神經分泌的 NPY（神經肽）。
+
+        img(src="/assets/img/rotation-girl.svg", alt="rotation-girl")
 
 
     //- 展開/收合
@@ -56,6 +64,9 @@ div#defn.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_s
             p
               span.mr-1 •
               | 影響食慾調節相關荷爾蒙，增加食慾、偏好高熱量選擇
+              
+        .max-w-72.block.mx-auto(class="w-7/12")
+          img(src="/assets/img/troubled-girl.svg", alt="troubled-girl")
 
 
     //- 展開/收合
@@ -85,6 +96,12 @@ div#defn.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_s
 <style scoped lang="sass">
 @import '~/assets/sass/media.sass'
 @import '~/assets/sass/colors.sass'
+
+.fit
+  width: 100%
+  height: 100%
+  object-fit: cover
+  object-position: center
 
 .toggleClamp
   .drop-content

@@ -29,9 +29,32 @@ div#map.bg-amber-200(class="imp_event" data-title="lunghealth" data-label="imp_s
 
 
 
+
+
 </template>
 
 <style scoped lang="sass">
 @import '~/assets/sass/media.sass'
 @import '~/assets/sass/colors.sass'
+
+.fit
+  width: 100%
+  height: 100%
+  object-fit: cover
+  object-position: center
+
+
+// #map
+//   position: relative
+//   &::after
+//     content: ''
+//     width: 110vw
+//     height: 100px
+//     background: url('/assets/img/wave.svg')
+//     background-size: cover
+//     position: absolute
+//     background-position: center
+//     bottom: -100px
+//     left: 55%
+//     transform: translateX(-55%)
 </style>

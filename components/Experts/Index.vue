@@ -107,7 +107,7 @@ const filteredItems = computed(() =>
 
 <template lang="pug">
 
-#experts.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+#experts.bg-cyan-200(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
 
   .container
 

@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="w-full bg-cyan-100">
+  <div class="w-full bg-cyan-200">
     <div class="container px-4">
       <div
         class="flex space-x-0 lg:space-x-14 space-y-4 justify-center items-center lg:items-end mb-8 flex-col lg:flex-row"

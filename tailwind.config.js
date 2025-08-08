@@ -12,7 +12,7 @@ export default {
       colors: {
         amber: {
           50: "#f9f5ea",
-          100: "#c6ba8b",
+          100: "#ede9da",
           200: "#e1d6c1",
           300: "#bca779",
           400: "#e4b70f",

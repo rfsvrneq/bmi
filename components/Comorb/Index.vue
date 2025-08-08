@@ -40,7 +40,11 @@ const tabComponents = {
 
 #comorb.bg-cyan-200(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
 
-  .container
+  //- 背景曲線
+  .w-full.h-20
+    img.fit(src="/assets/img/wave-3.svg")
+
+  .container.pt-0
 
     //- 肥胖成因
     .ttl
@@ -75,6 +79,12 @@ const tabComponents = {
 <style scoped lang="sass">
 @import '~/assets/sass/media.sass'
 @import '~/assets/sass/colors.sass'
+
+.fit
+  width: 100%
+  height: 100%
+  object-fit: cover
+  object-position: center
 
 // 分頁
 .tabs-table

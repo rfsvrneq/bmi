@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template lang="pug">
-div#media.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+div#media.bg-cyan-200(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
   .container
 
     //- 影音專區
