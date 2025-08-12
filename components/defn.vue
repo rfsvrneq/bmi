@@ -13,6 +13,7 @@ const height = ref(""); // 身高 cm
 const weight = ref(""); // 體重 kg
 const touched = ref(false); // 是否觸發驗證
 const showResult = ref(false); // 畫面切換
+const resultBmi = ref(null); // 「立即計算」後才有數值，否則為 null
 
 // 驗證
 const valid = computed(() => {
@@ -39,8 +40,17 @@ const bmi = computed(() => {
 
 // 結果文字
 const category = computed(() => {
-  if (!valid.value) return { idx: 0, badge: "", scope: "", unit: "" };
-  const v = bmi.value;
+  const v = resultBmi.value;
+  if (v == null)
+    return {
+      idx: 0,
+      badge: "",
+      scope: "",
+      unit: "",
+      weightUrl: "",
+      expertUrl: "",
+    };
+
   if (v < 18.5)
     return {
       idx: 1,
@@ -82,7 +92,16 @@ const category = computed(() => {
 function calc() {
   touched.value = true;
   if (!valid.value) return;
+  const hM = Number(height.value) / 100;
+  const v = Number(weight.value) / (hM * hM);
+  resultBmi.value = Number(v.toFixed(1)); // 只在此處寫入
   showResult.value = true;
+}
+
+// 全部清除
+function clearFields() {
+  height.value = "";
+  weight.value = "";
 }
 
 // 再算一次
@@ -91,6 +110,7 @@ function recalc() {
   weight.value = "";
   touched.value = false;
   showResult.value = false;
+  resultBmi.value = null;
 }
 
 onMounted(() => {
@@ -197,7 +217,7 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
                 //- 按鈕
                 .actions
                   button.btn.blue(type="submit") 立即計算
-                  button.btn.red(type="button" @click="recalc") 全部清除
+                  button.btn.red(type="button" @click="clearFields") 全部清除
               
           //- 結果頁
           //- .result-1 .result-2.result-3 .result-4
@@ -207,7 +227,7 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
               .badge 
                 p {{ category.badge }}
               .bmi
-                .value BMI = {{ bmi }}
+                .value BMI = {{ resultBmi }}
                 .scope
                   img.scope-icon(:src="getImageUrl(`result-${category.idx || 1}-icon.svg`)", alt="result-icon")
                   .scope-txt {{ category.scope }}
