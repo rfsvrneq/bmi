@@ -100,7 +100,7 @@ const moveTo = (ta) => {
 
 <template lang="pug">
 //- go
-a#go(@click.prevent="moveTo('#experts')")
+//- a#go(@click.prevent="moveTo('#experts')")
   img(src="/assets/img/go.svg", alt="go")
 
 
@@ -271,7 +271,7 @@ $nav-item-a-hover-mobile: white !default
 #go
   position: fixed
   bottom: 10%
-  right: 5%
+  right: 1rem
   width: 140px
   height: 140px
   z-index: 20
