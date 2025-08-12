@@ -100,7 +100,7 @@ const moveTo = (ta) => {
 
 <template lang="pug">
 //- go
-//- a#go(@click.prevent="moveTo('#experts')")
+a#go(@click.prevent="moveTo('#experts')" data-label="click-LiliBMI-btn-calculator-expert4")
   img(src="/assets/img/go.svg", alt="go")
 
 
@@ -137,7 +137,7 @@ div#topbar(:class="['w-full fixed top-0 left-0', { scrolled: scrollActive }]")
 </template>
 
 <style scoped lang="sass">
-@import '~/assets/sass/media.sass'
+@use '~/assets/sass/media' as *
 
 $nav-item-a: #343a55 !default
 $nav-item-a-hover: #dd4545 !default

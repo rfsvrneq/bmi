@@ -1,4 +1,13 @@
 <script setup>
+// 點擊滾動
+const HEADER_OFFSET = 32;
+function moveTo(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  const y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
+
 // 動態圖片載入
 const getImageUrl = (name) => {
   const assets = import.meta.glob("~/assets/img/*", {
@@ -58,7 +67,9 @@ const category = computed(() => {
       scope: "BMI ＜ 18.5 kg/m²",
       unit: "需要多運動，均衡飲食，以增加體能，維持健康！",
       weightUrl: "", // 體重管理
-      expertUrl: "#", // 諮詢專家
+      expertUrl: "#experts", // 諮詢專家
+      labelWeight: "",
+      labelExpert: "click-LiliBMI-btn-calculator-expert1",
     };
   if (v < 24)
     return {
@@ -67,7 +78,9 @@ const category = computed(() => {
       scope: "18.5 ≦ BMI ＜ 24 kg/m²",
       unit: "恭喜！「健康體重」，要繼續保持！",
       weightUrl: "", // 體重管理
-      expertUrl: "#", // 諮詢專家
+      expertUrl: "#experts", // 諮詢專家
+      labelWeight: "",
+      labelExpert: "click-LiliBMI-btn-calculator-expert1",
     };
   if (v < 27)
     return {
@@ -75,16 +88,20 @@ const category = computed(() => {
       badge: "體重過重!",
       scope: "24 kg/m² ≦ BMI ＜ 27 kg/m²",
       unit: "哦！要小心囉，趕快力行「健康體重管理」！",
-      weightUrl: "#", // 體重管理
-      expertUrl: "#", // 諮詢專家
+      weightUrl: "#mgmt-1", // 體重管理
+      expertUrl: "#experts", // 諮詢專家
+      labelWeight: "click-LiliBMI-btn-calculator-weightcontrol1",
+      labelExpert: "click-LiliBMI-btn-calculator-expert1",
     };
   return {
     idx: 4,
     badge: "肥胖!",
     scope: "BMI ≧ 27 kg/m²",
     unit: "啊～「肥胖」，需要立刻力行「健康體重管理」囉！",
-    weightUrl: "#", // 體重管理
-    expertUrl: "#", // 諮詢專家
+    weightUrl: "#mgmt-1", // 體重管理
+    expertUrl: "#experts", // 諮詢專家
+    labelWeight: "click-LiliBMI-btn-calculator-weightcontrol2",
+    labelExpert: "click-LiliBMI-btn-calculator-expert2",
   };
 });
 
@@ -157,16 +174,16 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
         p(class="tracking-[2px] inline lg:block") BMI 和腰圍是最常見的工具，若需更精確評估，可再進一步
         p(class="tracking-[2px] inline lg:block") 參考脂肪率、腰臀比，掌握全方位健康指標。
 
-      .flex.justify-center.items-center.mt-10(class="space-x-4 lg:space-x-10")
-        .flex.flex-col.items-end(class="space-y-3 lg:space-y-8")
-          img(src="/assets/img/libra-icon-1.svg" class="w-[100px]")
-          img(src="/assets/img/libra-icon-2.svg" class="w-[130px]")
-        .libra-girl(class="w-9/12 md:w-[460px]")
+      .flex.justify-center.items-center.mt-10(class="space-x-0 lg:space-x-10 flex-col md:flex-row mb-8 md:mb-0")
+        .flex(class="space-y-3 lg:space-y-8 space-x-4 md:space-x-0 order-2 md:order-none flex-row md:flex-col items-end")
+          img(src="/assets/img/libra-icon-1.svg" class="w-[70px] xs:w-[75px] sm:w-[100px] -mb-1 sm:mb-0")
+          img(src="/assets/img/libra-icon-2.svg" class="w-[90px] xs:w-[100px] sm:w-[130px]")
+        .libra-girl(class="w-9/12 md:w-[460px] order-1 mb-4 md:mb-0")
           img(src="/assets/img/libra-girl.svg")
-        .flex.flex-col.items-center(class="space-y-3 lg:space-y-8")
-          img(src="/assets/img/libra-icon-3.svg" class="w-[155px]")
-          img(src="/assets/img/libra-icon-4.svg" class="w-[135px]")
-          img(src="/assets/img/libra-icon-5.svg" class="w-[140px]")
+        .flex(class="space-y-3 lg:space-y-8 space-x-4 md:space-x-0 order-3 flex-row md:flex-col items-center md:items-center")
+          img(src="/assets/img/libra-icon-3.svg" class="w-[110px] xs:w-[115px] sm:w-[155px] -mb-2 sm:mb-0")
+          img(src="/assets/img/libra-icon-4.svg" class="w-[90px] xs:w-[105px] sm:w-[135px]")
+          img(src="/assets/img/libra-icon-5.svg" class="w-[100px] xs:w-[105px] sm:w-[140px]")
         
       .ttl-t.-mt-4.mb-14
         div
@@ -216,7 +233,7 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
                 p.err(v-if="touched && !valid" role="alert") ※ 請輸入正確的身高和體重！
                 //- 按鈕
                 .actions
-                  button.btn.blue(type="submit") 立即計算
+                  button.btn.blue(type="submit" data-label="click-LiliBMI-btn-calculator") 立即計算
                   button.btn.red(type="button" @click="clearFields") 全部清除
               
           //- 結果頁
@@ -236,8 +253,18 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
               img.result-pic(:src="getImageUrl(`result-${category.idx || 1}-pic.svg`)", alt="result-pic")
               .actions
                 button.btn.recalc(type="button" @click="recalc") 再算一次
-                a.btn.weight(:href="category.weightUrl" v-if="category.weightUrl" target="_blank") 體重管理
-                a.btn.expert(:href="category.expertUrl" target="_blank") 諮詢專家
+                button.btn.weight(
+                  type="button"
+                  v-if="category.weightUrl"
+                  @click="moveTo(category.weightUrl)"
+                  :data-label="category.labelWeight"
+                ) 體重管理
+
+                button.btn.expert(
+                  type="button"
+                  @click="moveTo(category.expertUrl)"
+                  :data-label="category.labelExpert"
+                ) 諮詢專家
 
 
     //- 分頁 腰圍 內容
@@ -269,7 +296,12 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
     .flex.justify-center.items-center.mt-14.mb-8.px-5(class="flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0")
       img.w-20(src="/assets/img/apple.svg")
       p.text-3xl.font-bold.text-red-200 BMI ≥ 27 應盡速諮詢專業醫師！
-      a.bg-red-200.text-white.rounded-full.py-3.px-6.text-2xl(href="#", class="hover:bg-red-500") 諮詢專家 ▶
+      a.bg-red-200.text-white.rounded-full.py-3.px-6.text-2xl(
+        href="javascript:void(0)"
+        @click="moveTo('#experts')"
+        class="hover:bg-red-500"
+        data-label="click-LiliBMI-btn-calculator-expert3"
+      ) 諮詢專家 ▶
 
     .content-p.text-center.mb-8.px-5
       p(class="tracking-[2px] inline lg:block") 依據衛生福利部公布之體位定義，18 歲以上成人區分為四種體位
@@ -287,8 +319,12 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
 </template>
 
 <style scoped lang="sass">
-@import '~/assets/sass/media.sass'
-@import '~/assets/sass/colors.sass'
+@use '~/assets/sass/media' as *
+@use '~/assets/sass/colors' as *
+
+@use 'sass:color'
+@use 'sass:list'
+
 
 // 計算機
 .bmi-wrap
@@ -303,15 +339,13 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
 // 結果頁
 .bmi-wrap.is-result
   .bmi-form
-    margin-left: 0
-    // max-width: 360px
     +m-768
-      margin-left: -50vw
-    +m-640
-      margin-left: -55vw
-    +m-480
-      margin-left: -72vw
-
+      display: none
+  .bmi-result
+    +m-768
+      margin-left: 0
+      margin-right: auto
+      max-width: 95%
 
 // 插圖
 .bmi-form-img
@@ -333,6 +367,7 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
     +m-768
       right: 0%
 
+
 // 表單
 .bmi-form
   z-index: 1
@@ -344,6 +379,8 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
   display: flex
   justify-content: center
   align-items: center
+  +m-375
+    padding: 1.5rem
   .label
     display: block
     font-size: .75rem
@@ -360,6 +397,7 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
       color: $amber-300
     &:focus-visible
       outline: 2px solid $red-200
+
 
 // 計算機結果
 .bmi-result
@@ -418,25 +456,29 @@ $results: (1: (#29a5bb #76c6ce #c6ba8b), 2: (#8db228 #b5c96b #c6ba8b), 3: (#f38b
 @each $i, $colors in $results
   .bmi-result.result-#{$i}
     .badge
-      color: nth($colors, 1)
+      color: list.nth($colors, 1)
     .bmi
-      background-color: nth($colors, 2)
+      background-color: list.nth($colors, 2)
     .actions
       .btn.recalc
-        background-color: nth($colors, 2)
+        background-color: list.nth($colors, 2)
         transition: all .3s ease
         &:hover
-          background-color: darken(nth($colors, 2), 10%)
+          // background-color: darken(nth($colors, 2), 10%)
+          background-color: color.adjust(list.nth($colors, 2), $lightness: -10%)
+
       .btn.weight
-        background-color: nth($colors, 1)
+        background-color: list.nth($colors, 1)
         transition: all .3s ease
         &:hover
-          background-color: darken(nth($colors, 1), 10%)
+          // background-color: darken(list.nth($colors, 1), 10%)
+          background-color: color.adjust(list.nth($colors, 1), $lightness: -10%)
       .btn.expert
-        background-color: nth($colors, 3)
+        background-color: list.nth($colors, 3)
         transition: all .3s ease
         &:hover
-          background-color: darken(nth($colors, 3), 10%)
+          // background-color: darken(nth($colors, 3), 10%)
+          background-color: color.adjust(list.nth($colors, 3), $lightness: -10%)
 .err
   color: white
   margin-top: 1rem
@@ -461,22 +503,28 @@ $results: (1: (#29a5bb #76c6ce #c6ba8b), 2: (#8db228 #b5c96b #c6ba8b), 3: (#f38b
     background-color: $blue-400
     transition: all .3s ease
     &:hover
-      background-color: darken($blue-400, 10%)
+      // background-color: darken($blue-400, 10%)
+      background-color: color.adjust($blue-400, $lightness: -10%)
   &.red
     background-color: $red-400
     transition: all .3s ease
     &:hover
-      background-color: darken($red-400, 10%)
+      // background-color: darken($red-400, 10%)
+      background-color: color.adjust($red-400, $lightness: -10%)
   &.cyan
     background-color: $cyan-300
     transition: all .3s ease
     &:hover
-      background-color: darken($cyan-300, 10%)
+      // background-color: darken($cyan-300, 10%)
+      background-color: color.adjust($cyan-300, $lightness: -10%)
+
   &.amber
     background-color: $amber-950
     transition: all .3s ease
     &:hover
-      background-color: darken($amber-950, 10%)
+      // background-color: darken($amber-950, 10%)
+      background-color: color.adjust($amber-950, $lightness: -10%)
+
 
 
 

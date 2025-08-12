@@ -66,7 +66,8 @@ export default {
         },
       },
       screens: {
-        xs: "440px",
+        xxs: "375px",
+        xs: "410px",
       },
       borderWidth: {
         1: "1px",

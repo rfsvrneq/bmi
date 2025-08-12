@@ -17,6 +17,6 @@ div#media.bg-cyan-200(class="imp_event" data-title="lunghealth" data-label="imp_
 </template>
 
 <style scoped lang="sass">
-@import '~/assets/sass/media.sass'
-@import '~/assets/sass/colors.sass'
+@use '~/assets/sass/media' as *
+@use '~/assets/sass/colors' as *
 </style>

@@ -15,13 +15,13 @@
   }
 
   .ttl {
-    @apply text-center my-10 -mx-2;
+    @apply text-center my-10 ml-4 lg:-mx-2;
   }
   .ttl > div {
     @apply relative inline-block;
   }
   .ttl img {
-    @apply absolute -left-8 sm:-left-12 -top-2 sm:-top-4 w-20;
+    @apply absolute -left-7 sm:-left-8 sm:-left-12 -top-2 sm:-top-4 w-16 sm:w-20;
   }
   .ttl span {
     @apply bg-blue-400 text-white px-4 py-1 rounded-full absolute -top-6 left-14 sm:left-10 text-lg;
@@ -62,7 +62,7 @@
     @apply hover:text-red-500 mr-12;
   }
   .ttl-rounded > div img:nth-child(1) {
-    @apply absolute h-[105%] -top-[2.5%] -left-1;
+    @apply absolute h-[105%] -top-[2.5%] -left-1 hidden sm:block;
   }
   .ttl-rounded > div img:nth-child(3) {
     @apply absolute h-[105%] -top-[2.5%] right-0;

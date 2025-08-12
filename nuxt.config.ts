@@ -104,7 +104,7 @@ export default defineNuxtConfig({
       autoImports: ['defineStore', 'acceptHMRUpdate']
     }],
     'nuxt-swiper',
-    'v-gsap-nuxt'
+    // 'v-gsap-nuxt'
   ],
   
   postcss: {

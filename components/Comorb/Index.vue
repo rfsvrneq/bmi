@@ -77,8 +77,8 @@ const tabComponents = {
 </template>
 
 <style scoped lang="sass">
-@import '~/assets/sass/media.sass'
-@import '~/assets/sass/colors.sass'
+@use '~/assets/sass/media' as *
+@use '~/assets/sass/colors' as *
 
 .fit
   width: 100%

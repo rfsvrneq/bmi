@@ -34,8 +34,8 @@ div#map.bg-amber-200(class="imp_event" data-title="lunghealth" data-label="imp_s
 </template>
 
 <style scoped lang="sass">
-@import '~/assets/sass/media.sass'
-@import '~/assets/sass/colors.sass'
+@use '~/assets/sass/media' as *
+@use '~/assets/sass/colors' as *
 
 .fit
   width: 100%

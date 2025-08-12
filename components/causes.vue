@@ -1,12 +1,44 @@
 <script setup>
+import rotationgirlSvg from "~/assets/img/rotation-girl.svg?raw"; // 把 SVG 檔案當作字串引入
+const { $gsap } = useNuxtApp(); // 呼叫 gsap
+
+// 收合
 const toggleClamp = (event) => {
   // 只切換「父層容器」的 active
   event.currentTarget.classList.toggle("active");
 };
+
+onMounted(() => {
+  // gsap
+  $gsap.to("#rotation-icon-1-runner", {
+    duration: 5,
+    repeat: -1,
+    ease: "none",
+    opacity: 0,
+    motionPath: {
+      path: "#rotation-icon-1-curve",
+      align: "#rotation-icon-1-curve",
+      autoRotate: true,
+      alignOrigin: [0.5, 0.5],
+    },
+  });
+  $gsap.to("#rotation-icon-2-runner", {
+    duration: 5,
+    repeat: -1,
+    ease: "none",
+    opacity: 0,
+    motionPath: {
+      path: "#rotation-icon-2-curve",
+      align: "#rotation-icon-2-curve",
+      autoRotate: true,
+      alignOrigin: [0.5, 0.5],
+    },
+  });
+});
 </script>
 
 <template lang="pug">
-div#defn.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+div#causes.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
 
   //- 背景曲線
   .w-full.h-20
@@ -43,7 +75,7 @@ div#defn.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_s
         .content-p.mb-10
           p(class="tracking-[-0.5px]") 其他和調控食慾相關的腸道荷爾蒙包含 Ghrelin（胃促生長激素）、PYY（多肽YY）、CCK（膽囊收縮素）等。除了腸道荷爾蒙外，還有許多荷爾蒙掌握著我們的飢餓與飽足感，包含脂肪細胞分泌的 Leptin（瘦體素）、中樞神經分泌的 NPY（神經肽）。
 
-        img(src="/assets/img/rotation-girl.svg", alt="rotation-girl")
+        .rotation-girl(class="w-9/12 md:w-10/12 mx-auto" v-html="rotationgirlSvg")
 
 
     //- 展開/收合
@@ -67,6 +99,7 @@ div#defn.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_s
               
         .max-w-72.block.mx-auto(class="w-7/12")
           img(src="/assets/img/troubled-girl.svg", alt="troubled-girl")
+          
 
 
     //- 展開/收合
@@ -94,8 +127,9 @@ div#defn.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_s
 </template>
 
 <style scoped lang="sass">
-@import '~/assets/sass/media.sass'
-@import '~/assets/sass/colors.sass'
+@use '~/assets/sass/media' as *
+@use '~/assets/sass/colors' as *
+
 
 .fit
   width: 100%

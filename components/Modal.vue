@@ -17,7 +17,9 @@ Transition(name="modal")
 </template>
 
 <style scoped lang="sass">
-@import '~/assets/sass/media.sass'
+@use '~/assets/sass/media' as *
+@use '~/assets/sass/colors' as *
+
 .modal-fixed
   position: fixed
   top: 0

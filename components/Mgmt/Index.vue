@@ -56,7 +56,7 @@ const tabComponents = {
       .content-p.text-white
         span.top ”
         p 肥胖症成因複雜，別再認為對抗肥胖失敗等於沒有意志力，食慾、脂肪堆積可能無法靠自己控制，諮詢專業醫師，討論專屬您的健康處方！
-        span.bottom ”
+        span.bottom#mgmt-1 ”
 
     .text-center.my-10
       .rounded-btn.text-2xl
@@ -81,8 +81,8 @@ const tabComponents = {
 </template>
 
 <style scoped lang="sass">
-@import '~/assets/sass/media.sass'
-@import '~/assets/sass/colors.sass'
+@use '~/assets/sass/media' as *
+@use '~/assets/sass/colors' as *
 
 // 分頁
 .tabs-table
@@ -101,7 +101,7 @@ const tabComponents = {
       background-color: $cyan-300
       +m-480
         padding: .25rem .5rem
-        font-size: 1.25rem
+        font-size: 1.15rem
         margin: 0 .15rem
     // 點選時的樣式
     &.active

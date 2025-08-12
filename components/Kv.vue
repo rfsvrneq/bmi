@@ -49,8 +49,9 @@ div#kv.overflow-hidden(class="imp_event pt-[62px]" data-title="lunghealth" data-
 </template>
 
 <style scoped lang="sass">
-@import '~/assets/sass/media.sass'
-@import '~/assets/sass/colors.sass'
+@use '~/assets/sass/media' as *
+@use '~/assets/sass/colors' as *
+
 #kv
   background-color: $amber-200
   position: relative
