@@ -11,18 +11,17 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
-    <!-- <Navbar /> -->
-
-    <div class="loading-overlay" v-if="isLoading">
-      <div class="spinner"></div>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <!-- <Navbar /> -->
+      <div class="loading-overlay" v-if="isLoading">
+        <div class="spinner"></div>
+      </div>
+      <main>
+        <slot />
+      </main>
+      <!-- <Footer /> -->
     </div>
-
-    <main>
-      <slot />
-    </main>
-
-    <!-- <Footer /> -->
   </div>
 </template>
 

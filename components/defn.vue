@@ -175,12 +175,12 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
         p(class="tracking-[2px] inline lg:block") 參考脂肪率、腰臀比，掌握全方位健康指標。
 
       .flex.justify-center.items-center.mt-10(class="space-x-0 lg:space-x-10 flex-col md:flex-row mb-8 md:mb-0")
-        .flex(class="space-y-3 lg:space-y-8 space-x-4 md:space-x-0 order-2 md:order-none flex-row md:flex-col items-end")
+        .flex.ani-1(class="space-y-3 lg:space-y-8 space-x-4 md:space-x-0 order-2 md:order-none flex-row md:flex-col items-end")
           img(src="/assets/img/libra-icon-1.svg" class="w-[70px] xs:w-[75px] sm:w-[100px] -mb-1 sm:mb-0")
           img(src="/assets/img/libra-icon-2.svg" class="w-[90px] xs:w-[100px] sm:w-[130px]")
         .libra-girl(class="w-9/12 md:w-[460px] order-1 mb-4 md:mb-0")
           img(src="/assets/img/libra-girl.svg")
-        .flex(class="space-y-3 lg:space-y-8 space-x-4 md:space-x-0 order-3 flex-row md:flex-col items-center md:items-center")
+        .flex.ani-1(class="space-y-3 lg:space-y-8 space-x-4 md:space-x-0 order-3 flex-row md:flex-col items-center md:items-center")
           img(src="/assets/img/libra-icon-3.svg" class="w-[110px] xs:w-[115px] sm:w-[155px] -mb-2 sm:mb-0")
           img(src="/assets/img/libra-icon-4.svg" class="w-[90px] xs:w-[105px] sm:w-[135px]")
           img(src="/assets/img/libra-icon-5.svg" class="w-[100px] xs:w-[105px] sm:w-[140px]")
@@ -308,7 +308,9 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
         sup 4
         | ：
 
-    img(src="/assets/img/scale-2.svg" class="w-11/12 sm:w-10/12 md:w-7/12 mx-auto")
+    .relative
+      img(src="/assets/img/scale-2.svg" class="w-11/12 sm:w-10/12 md:w-7/12 mx-auto z-10 relative")
+      img#bmi-img(src="/assets/img/bmi-img.svg")
 
     .content-p.text-center.mt-8.px-5
       p(class="tracking-[2px] inline lg:block") BMI 的好處是容易取得，缺點是無法了解身體組成；
@@ -319,11 +321,9 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
 </template>
 
 <style scoped lang="sass">
-@use '~/assets/sass/media' as *
-@use '~/assets/sass/colors' as *
-
+@use '@/assets/sass/media' as *
+@use '@/assets/sass/colors' as *
 @use 'sass:color'
-@use 'sass:list'
 
 
 // 計算機
@@ -350,23 +350,41 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
 // 插圖
 .bmi-form-img
   img
-    width: 170px
+    width: 220px
     position: absolute
     z-index: 0
     bottom: 15%
+    +m-1024
+      width: 170px
     +m-768
       width: 80px
       bottom: 0
       z-index: 2
   img:nth-child(1)
     left: 10%
+    animation: wobble-hor-bottom 8s both infinite -.5s
     +m-768
       left: 0%
   img:nth-child(2)
+    animation: wobble-hor-bottom 8s both infinite -2s
     right: 8%
     +m-768
       right: 0%
 
+@keyframes wobble-hor-bottom
+  0%, 100%
+    transform: translateX(0) rotate(0deg) translateY(0)
+    transform-origin: 50% 50%
+  15%
+    transform: translateX(-10px) rotate(-3deg) translateY(1px)
+  30%
+    transform: translateX(8px) rotate(3deg) translateY(0)
+  45%
+    transform: translateX(-6px) rotate(-2deg) translateY(-1px)
+  60%
+    transform: translateX(4px) rotate(1.2deg) translateY(0.5px)
+  75%
+    transform: translateX(-3px) rotate(-1deg) translateY(0)
 
 // 表單
 .bmi-form
@@ -448,37 +466,97 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
   .result-pic
     width: 90%
 
+// result-1
+.bmi-result.result-1
+  .badge
+    color: #29a5bb
+  .bmi
+    background-color: #76c6ce
+  .actions
+    .btn.recalc
+      background-color: #76c6ce
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#76c6ce, $lightness: -10%)
+    .btn.weight
+      background-color: #29a5bb
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#29a5bb, $lightness: -10%)
+    .btn.expert
+      background-color: #c6ba8b
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#c6ba8b, $lightness: -10%)
 
-// 先定義四組顏色
-// 每組顏色用 list 包成一個值
-$results: (1: (#29a5bb #76c6ce #c6ba8b), 2: (#8db228 #b5c96b #c6ba8b), 3: (#f38b2f #fca768 #c6ba8b), 4: (#e2342b #f47171 #c6ba8b))
+// result-2
+.bmi-result.result-2
+  .badge
+    color: #8db228
+  .bmi
+    background-color: #b5c96b
+  .actions
+    .btn.recalc
+      background-color: #b5c96b
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#b5c96b, $lightness: -10%)
+    .btn.weight
+      background-color: #8db228
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#8db228, $lightness: -10%)
+    .btn.expert
+      background-color: #c6ba8b
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#c6ba8b, $lightness: -10%)
 
-@each $i, $colors in $results
-  .bmi-result.result-#{$i}
-    .badge
-      color: list.nth($colors, 1)
-    .bmi
-      background-color: list.nth($colors, 2)
-    .actions
-      .btn.recalc
-        background-color: list.nth($colors, 2)
-        transition: all .3s ease
-        &:hover
-          // background-color: darken(nth($colors, 2), 10%)
-          background-color: color.adjust(list.nth($colors, 2), $lightness: -10%)
+// result-3
+.bmi-result.result-3
+  .badge
+    color: #f38b2f
+  .bmi
+    background-color: #fca768
+  .actions
+    .btn.recalc
+      background-color: #fca768
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#fca768, $lightness: -10%)
+    .btn.weight
+      background-color: #f38b2f
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#f38b2f, $lightness: -10%)
+    .btn.expert
+      background-color: #c6ba8b
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#c6ba8b, $lightness: -10%)
 
-      .btn.weight
-        background-color: list.nth($colors, 1)
-        transition: all .3s ease
-        &:hover
-          // background-color: darken(list.nth($colors, 1), 10%)
-          background-color: color.adjust(list.nth($colors, 1), $lightness: -10%)
-      .btn.expert
-        background-color: list.nth($colors, 3)
-        transition: all .3s ease
-        &:hover
-          // background-color: darken(nth($colors, 3), 10%)
-          background-color: color.adjust(list.nth($colors, 3), $lightness: -10%)
+// result-4
+.bmi-result.result-4
+  .badge
+    color: #e2342b
+  .bmi
+    background-color: #f47171
+  .actions
+    .btn.recalc
+      background-color: #f47171
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#f47171, $lightness: -10%)
+    .btn.weight
+      background-color: #e2342b
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#e2342b, $lightness: -10%)
+    .btn.expert
+      background-color: #c6ba8b
+      transition: all .3s ease
+      &:hover
+        background-color: color.adjust(#c6ba8b, $lightness: -10%)
 .err
   color: white
   margin-top: 1rem
@@ -525,7 +603,13 @@ $results: (1: (#29a5bb #76c6ce #c6ba8b), 2: (#8db228 #b5c96b #c6ba8b), 3: (#f38b
       // background-color: darken($amber-950, 10%)
       background-color: color.adjust($amber-950, $lightness: -10%)
 
-
+// 計算機插圖
+#bmi-img
+  position: absolute
+  max-width: 360px
+  left: 0
+  top: 0
+  z-index: 0
 
 
 // 背景曲線

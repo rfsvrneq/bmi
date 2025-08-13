@@ -29,7 +29,7 @@ div#kv.overflow-hidden(class="imp_event pt-[62px]" data-title="lunghealth" data-
         h2 您知道肥胖是一種慢性疾病嗎？
 
         
-    .content-p
+    .content-p.gasp-fade
       p.text-center(class="inline lg:block") 世界衛生組織 (WHO) 公佈資料顯示
         sup 1
         | ，全球已有超過
@@ -43,8 +43,8 @@ div#kv.overflow-hidden(class="imp_event pt-[62px]" data-title="lunghealth" data-
         span(class="inline lg:block") 更是牽涉到社會、經濟以及全球公共衛生的重大挑戰。
         img.w-32.absolute(class="-top-14 sm:-top-20 -right-12 sm:-right-10" src="/assets/img/intro-icon-1.svg")
 
-    img.w-44.absolute.-left-40.top-80.-z-10(src="/assets/img/intro-icon-2.svg")
-    img.w-9.absolute.-right-12.bottom-40(src="/assets/img/intro-icon-3.svg")
+    img#gpani-kv-1.w-44.absolute.-left-40.top-80.-z-10(src="/assets/img/intro-icon-2.svg")
+    img#gpani-kv-2.w-9.absolute.-right-12.bottom-40(src="/assets/img/intro-icon-3.svg")
 
 </template>
 

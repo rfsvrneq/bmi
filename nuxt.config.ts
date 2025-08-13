@@ -3,7 +3,8 @@ import path from 'path'
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
-  
+  compatibilityDate: '2025-08-13',
+
   // 伺服器端環境變數
   runtimeConfig: {
     // 伺服端與客戶端

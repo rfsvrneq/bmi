@@ -8,32 +8,55 @@ const toggleClamp = (event) => {
   event.currentTarget.classList.toggle("active");
 };
 
+// gsap動畫
+const tids = []; // 存觸發器 id 以便銷毀
+const tweens = []; // 存觸發器 id 以便銷毀
 onMounted(() => {
-  // gsap
-  $gsap.to("#rotation-icon-1-runner", {
-    duration: 5,
+  // rotation-1：順時針
+  const t1 = $gsap.to("#rotation-1", {
+    rotation: 360, // 旋轉一圈
+    duration: 6, // 一圈 6 秒，自行調整
+    repeat: -1, // 無限循環
+    ease: "none", // 線性
+    transformOrigin: "50% 50%",
+  });
+
+  // rotation-2：逆時針，延遲 0.3 秒起跑
+  const t2 = $gsap.to("#rotation-2", {
+    rotation: -360, // 反向
+    duration: 6,
     repeat: -1,
     ease: "none",
-    opacity: 0,
-    motionPath: {
-      path: "#rotation-icon-1-curve",
-      align: "#rotation-icon-1-curve",
-      autoRotate: true,
-      alignOrigin: [0.5, 0.5],
-    },
+    transformOrigin: "50% 50%",
+    delay: 0.3,
   });
-  $gsap.to("#rotation-icon-2-runner", {
-    duration: 5,
-    repeat: -1,
-    ease: "none",
-    opacity: 0,
-    motionPath: {
-      path: "#rotation-icon-2-curve",
-      align: "#rotation-icon-2-curve",
-      autoRotate: true,
-      alignOrigin: [0.5, 0.5],
-    },
+
+  tweens.push(t1, t2);
+
+  // 取出 6 個跑者
+  $gsap.utils.toArray('[id^="rotation-icon-"][id$="-runner"]').forEach((el) => {
+    const pathSel = "#" + el.id.replace("runner", "curve"); // 對應 path/line
+
+    $gsap.to(el, {
+      ease: "none",
+      motionPath: {
+        path: pathSel,
+        align: pathSel,
+        // autoRotate: true,
+        alignOrigin: [0.5, 0.5],
+        start: 0,
+        end: 1, // 跑完整條路徑
+      },
+      duration: 6, // 跑完一圈的時間（秒）
+      repeat: -1, // 無限循環
+      yoyo: true,
+    });
   });
+});
+
+onBeforeUnmount(() => {
+  tids.forEach((st) => st && st.kill());
+  tweens.forEach((t) => t && t.kill());
 });
 </script>
 
@@ -66,7 +89,7 @@ div#causes.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp
           h3 研究顯示，腸道荷爾蒙與大腦的溝通失衡，可能會增加你的食慾！
             sup.sup 6
           img.w-10.triangle(src="/assets/img/triangle.svg", alt="triangle")
-      .drop-content
+      .drop-content.trigger-active
         .content-p
           p(class="tracking-[-1px]") 管不住的食慾不是你意志力不足，可能是你的腸道荷爾蒙讓你「很難瘦」。
           p(class="tracking-[-1px]") 舉例來說，我們常聽到的

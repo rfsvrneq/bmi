@@ -24,7 +24,7 @@ div.grid.gap-2(class="grid-cols-2 sm:grid-cols-3 lg:grid-cols-4")
       p.text-xl {{ item.doctor }} 醫師
       span.block(class="text-[12px]") {{ item.hospital }}
       span.block.mb-2(class="text-[10px] leading-3") {{ item.add }}
-      a.bg-blue-400.text-white.text-sm.px-4.py-1.rounded-full(:href="item.url" target="_blank" rel="noopener" class="hover:bg-cyan-800") 前往掛號
+      a.bg-blue-400.text-white.text-sm.px-4.py-1.rounded-full(:href="item.url" target="_blank" rel="noopener" class="hover:bg-cyan-800") 更多資訊
     .pic.flex-none(class="w-5/12")
       img(
         :src="item.gender === 'male' ? maleIcon : femaleIcon"

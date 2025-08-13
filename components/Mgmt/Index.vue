@@ -49,10 +49,15 @@ const tabComponents = {
         h2 關於體重管理，除了少吃多動還可以做什麼？
 
     .content-p
-      p(class="tracking-[-.4 px]") 根據台灣肥胖醫學會 2022 年「全台肥胖認知調查」，正在減重的人僅有 14.7% 尋求專業醫師協助。隨著全球各國逐漸認定肥胖為慢性病，英國與日本也逐步將相關藥物納入給付。適時的藥物介入在體重管理中的角色逐漸被肯定；
+      p(class="tracking-[-.5px]") 根據台灣肥胖醫學會 2022 年「全台肥胖認知調查」，正在減重的人僅有 14.7% 尋求專業醫師協助。隨著全球各國逐漸認定肥胖為慢性病，英國與日本也逐步將相關藥物納入給付。適時的藥物介入在體重管理中的角色逐漸被肯定；
         span.text-red-500 改變生活型態與飲食習慣的同時，藥物除了能輔助性的改善體重與健康，更可增加信心，讓對抗肥胖之路不再困難重重！
 
+    .ani-1.flex.items-end.justify-center.-mb-8.mt-5
+      img(src="/assets/img/mirror-1.svg" class="w-4/12 max-w-[220px]")
+      img(src="/assets/img/mirror-2.svg" class="w-4/12 max-w-[240px]")
+
     .quotation.max-w-4xl.mx-auto
+      
       .content-p.text-white
         span.top ”
         p 肥胖症成因複雜，別再認為對抗肥胖失敗等於沒有意志力，食慾、脂肪堆積可能無法靠自己控制，諮詢專業醫師，討論專屬您的健康處方！
@@ -150,7 +155,7 @@ const tabComponents = {
     width: 55px
     height: 35px
     position: absolute
-    top: -2.2rem
+    top: -2.15rem
     right: 1rem
     color: white
     font-size: 2rem
