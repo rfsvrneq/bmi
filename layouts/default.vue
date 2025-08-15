@@ -11,21 +11,26 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div id="smooth-wrapper">
-    <div id="smooth-content">
-      <!-- <Navbar /> -->
-      <div class="loading-overlay" v-if="isLoading">
-        <div class="spinner"></div>
-      </div>
-      <main>
-        <slot />
-      </main>
-      <!-- <Footer /> -->
+  <div>
+    <!-- <Navbar /> -->
+    <div class="loading-overlay" v-if="isLoading">
+      <div class="spinner"></div>
     </div>
+    <main>
+      <slot />
+    </main>
+    <!-- <Footer /> -->
   </div>
 </template>
 
 <style scoped lang="sass">
+// smooth設定
+html, body, #smooth-wrapper
+  height: 100%
+  overflow: hidden
+#smooth-content
+  overflow: visible
+
 .loading-overlay
   position: fixed
   top: 0

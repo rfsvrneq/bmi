@@ -8,7 +8,7 @@ const imgSrc = `${imgSvg}?v=${version}`;
 
 <template lang="pug">
 
-div#kv.overflow-hidden(class="imp_event pt-[62px]" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+div#kv(class="imp_event pt-[62px]" data-title="lunghealth" data-label="imp_section-lunghealth-home")
   client-only
     .kv
       img.kv-title(
@@ -43,8 +43,8 @@ div#kv.overflow-hidden(class="imp_event pt-[62px]" data-title="lunghealth" data-
         span(class="inline lg:block") 更是牽涉到社會、經濟以及全球公共衛生的重大挑戰。
         img.w-32.absolute(class="-top-14 sm:-top-20 -right-12 sm:-right-10" src="/assets/img/intro-icon-1.svg")
 
-    img#gpani-kv-1.w-44.absolute.-left-40.top-80.-z-10(src="/assets/img/intro-icon-2.svg")
-    img#gpani-kv-2.w-9.absolute.-right-12.bottom-40(src="/assets/img/intro-icon-3.svg")
+    img.w-44.absolute.-z-10(src="/assets/img/intro-icon-2.svg" data-speed=".7" class="-left-[15%] top-[45%]")
+    img.w-9.absolute(src="/assets/img/intro-icon-3.svg" data-speed=".5" class="-right-[15%] bottom-[45%]")
 
 </template>
 

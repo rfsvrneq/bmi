@@ -1,105 +1,56 @@
+// plugins/gsap.client.js
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// 註冊外掛
+// 1. 先註冊所有外掛
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, ScrollSmoother);
 
-export default defineNuxtPlugin(() => {
-  if (process.client) {
-    // 初始化 ScrollSmoother
-    ScrollSmoother.create({
-      wrapper: "#smooth-wrapper", // 外層容器
-      content: "#smooth-content", // 內容容器
-      smooth: 1.5, // 滾動平滑時間
-      effects: true, // 開啟 data-speed 視差效果
+export default defineNuxtPlugin((nuxtApp) => {
+  if (!process.client) return;
+
+  let smoother; // 後面賦值
+
+  // 2. 每次 page 完成渲染後才初始化
+  nuxtApp.hook("page:finish", () => {
+    // 確保容器存在
+    if (!document.querySelector("#smooth-wrapper")) return;
+
+    smoother = ScrollSmoother.create({
+      wrapper: "#smooth-wrapper",
+      content: "#smooth-content",
+      smooth: 1.5,
+      effects: true,
     });
 
-    // kv 兩個 icon 不停自轉
-    gsap.to("#gpani-kv-1", {
-      rotation: 360,
-      repeat: -1,
-      duration: 12,
-      ease: "none",
-    });
-
-    gsap.to("#gpani-kv-2", {
-      rotation: -360,
-      repeat: -1,
-      duration: 12,
-      ease: "none",
-    });
-
-    // .ttl 區塊淡入效果
-    gsap.utils.toArray(".ttl").forEach((ttl) => {
-      gsap.from(ttl, {
+    // .ttl 與 .ttl-rounded 淡入效果
+    document.querySelectorAll(".ttl, .ttl-rounded").forEach((el) => {
+      gsap.from(el, {
         scrollTrigger: {
-          trigger: ttl,
-          start: "top 80%", // 元素頂部進入視窗 80% 高度時觸發
-          toggleActions: "play none none reverse", // 滾回去時反播
-        },
-        opacity: 0,
-        y: 80, // 從下方滑入
-        duration: 1.5,
-        ease: "power2.out",
-      });
-    });
-    gsap.utils.toArray(".ttl-rounded").forEach((ttl) => {
-      gsap.from(ttl, {
-        scrollTrigger: {
-          trigger: ttl,
-          start: "top 80%", // 元素頂部進入視窗 80% 高度時觸發
-          toggleActions: "play none none reverse", // 滾回去時反播
-        },
-        opacity: 0,
-        y: 80, // 從下方滑入
-        duration: 1.5,
-        ease: "power2.out",
-      });
-    });
-
-    // 蹺蹺板女孩
-    gsap.utils.toArray(".ani-1").forEach((wrap) => {
-      const imgs = wrap.querySelectorAll("img");
-      // 以捲動推進時間軸，回捲會反播
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: wrap,
-          start: "top 80%", // 區塊頂到視窗 80% 高度才開始
-          toggleActions: "play none none reverse", // 滾回去時反播
-          scrub: 1.5, // 與捲動綁定
-          // markers: true,
-        },
-      });
-      tl.from(imgs, {
-        opacity: 0,
-        x: 100,
-        duration: 0.8, // 每個項目的基礎時長（scrub 會線性推進）
-        stagger: 0.15, // 逐一出現
-        ease: "power2.out",
-        immediateRender: false,
-      });
-    });
-
-    // BMI 文字
-    gsap.fromTo(
-      "#bmi-img",
-      { xPercent: -350 }, // 起點（左邊）
-      {
-        xPercent: 450, // 終點（右邊）
-        ease: "none",
-        scrollTrigger: {
+          trigger: el,
           start: "top 80%",
-          end: "bottom top",
-          scrub: true,
+          toggleActions: "play none none reverse",
         },
-      }
-    );
-  }
+        opacity: 0,
+        y: 80,
+        duration: 1.5,
+        ease: "power2.out",
+      });
+    });
+  });
+
+  // 3. 在下一次 page 開始前，先釋放上次的動畫資源
+  nuxtApp.hook("page:start", () => {
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+    smoother?.kill();
+    gsap.globalTimeline.clear();
+  });
+
+  // 4. 提供 $gsap 讓組件內可用 useNuxtApp().$gsap
   return {
     provide: {
-      gsap, // 讓元件可以用 useNuxtApp().$gsap 呼叫
+      gsap,
     },
   };
 });

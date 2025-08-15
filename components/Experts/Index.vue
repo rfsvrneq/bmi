@@ -109,7 +109,11 @@ const filteredItems = computed(() =>
 
 #experts.bg-cyan-200(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
 
-  .container
+  .container.relative
+
+    //- 插圖
+    img.w-20.absolute(src="/assets/img/dna-3.svg" data-speed=".65" class="top-[0%] -left-[15%]")
+    img.w-24.absolute(src="/assets/img/dna-4.svg" data-speed=".55" class="top-[60%] -right-[15%]")
 
     //- 專家地圖
     .ttl

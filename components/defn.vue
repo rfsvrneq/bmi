@@ -157,11 +157,14 @@ onMounted(() => {
 <template lang="pug">
 div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
 
-  
   //- 背景曲線
   .w-full.h-20
     img.fit(src="/assets/img/wave.svg")
-  .max-w-6xl.mx-auto
+  .max-w-6xl.mx-auto.relative
+
+    //- 插圖
+    img.w-16.absolute(src="/assets/img/dna-2.svg" data-speed=".65" class="top-[12%] -left-[5%]")
+    img.w-16.absolute(src="/assets/img/dna-1.svg" data-speed=".55" class="top-[20%] -right-[5%]")
 
     .px-5
       //- 肥胖定義
@@ -212,7 +215,7 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
         .bmi-wrap(:class="{ 'is-result': showResult }")
 
           //- 插圖娃娃 --> 計算結果頁時隱藏
-          Transition(name="doll" appear)
+          Transition(name="doll" appear mode="out-in")
             .bmi-form-img(v-if="!showResult")
               img(src="/assets/img/bmi-form-img-1.svg")
               img(src="/assets/img/bmi-form-img-2.svg")
@@ -310,7 +313,7 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
 
     .relative
       img(src="/assets/img/scale-2.svg" class="w-11/12 sm:w-10/12 md:w-7/12 mx-auto z-10 relative")
-      img#bmi-img(src="/assets/img/bmi-img.svg")
+      img#bmi-img(src="/assets/img/bmi-img.svg" data-speed="0.75" data-lag="0.2")
 
     .content-p.text-center.mt-8.px-5
       p(class="tracking-[2px] inline lg:block") BMI 的好處是容易取得，缺點是無法了解身體組成；
@@ -607,7 +610,7 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
 #bmi-img
   position: absolute
   max-width: 360px
-  left: 0
+  left: -5%
   top: 0
   z-index: 0
 
@@ -685,15 +688,26 @@ $dist: 100px
 
 
 // doll 轉場動畫
-$dur: .8s
-$ease: cubic-bezier(.22, .61, .36, 1)
+// 進場
+.doll-enter-from
+  opacity: 0
+  transform: translate3d(0, 20px, 0) scale(.975)
 
-.doll-enter-active,
+.doll-enter-active
+  transition: opacity $dur-enter ease-in, transform $dur-enter $ease
+
+.doll-enter-to
+  opacity: 1
+  transform: translate3d(0, 0, 0) scale(1)
+
+// 退場
+.doll-leave-from
+  opacity: 1
+  transform: translate3d(0, 0, 0) scale(1)
+
 .doll-leave-active
-  transition: opacity $dur ease-in, transform $dur $ease
-  will-change: opacity, transform
+  transition: opacity $dur-leave ease-out, transform $dur-leave $ease
 
-.doll-enter-from,
 .doll-leave-to
   opacity: 0
   transform: translate3d(0, 20px, 0) scale(.975)
