@@ -194,6 +194,8 @@ const filteredItems = computed(() =>
     padding: 1rem
     max-height: 70vh
     overflow-y: auto
+    overscroll-behavior: contain      // 阻止滾動事件冒泡
+    -webkit-overflow-scrolling: touch // iOS 平滑捲動
 
 
 // 分頁淡入淡出效果
