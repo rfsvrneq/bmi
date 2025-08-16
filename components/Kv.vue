@@ -8,7 +8,7 @@ const imgSrc = `${imgSvg}?v=${version}`;
 
 <template lang="pug">
 
-div#kv.overflow-x-hidden(class="imp_event pt-[62px]" data-title="2025obesity" data-label="imp_section-2025obesity-home")
+div#kv(class="imp_event pt-[62px]" data-title="2025obesity" data-label="imp_section-2025obesity-home")
   client-only
     .kv
       img.kv-title(
