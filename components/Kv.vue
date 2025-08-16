@@ -11,7 +11,7 @@ const imgSrc = `${imgSvg}?v=${version}`;
 div#kv(class="imp_event pt-[62px]" data-title="2025obesity" data-label="imp_section-2025obesity-home")
   client-only
     .kv
-      img.kv-title.z-10(
+      img.kv-title(
         :src="titleSrc"
         alt="BMI>=27 病得不輕?"
       )
@@ -78,16 +78,16 @@ div#kv(class="imp_event pt-[62px]" data-title="2025obesity" data-label="imp_sect
       margin-top: -30%
 
 .kv-img
+  z-index: 0
   +m-1024-up
     position: absolute
     right: 50%
     transform: translateX(90%)
     top: 60px
-    z-index: 0
     width: 750px
 .kv-title
+  z-index: 1
   +m-1024-up
-    z-index: 1
     position: relative
     max-width: 680px
     left: 50%
