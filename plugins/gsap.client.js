@@ -4,27 +4,34 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// 1. 先註冊所有外掛
+// 1. 註冊所有外掛
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, ScrollSmoother);
 
 export default defineNuxtPlugin((nuxtApp) => {
+  // 只在 client 端執行
   if (!process.client) return;
 
-  let smoother; // 後面賦值
+  let smoother; // ScrollSmoother 實例
 
-  // 2. 每次 page 完成渲染後才初始化
+  // 2. 每次頁面渲染完成後初始化（page:finish hook）
   nuxtApp.hook("page:finish", () => {
-    // 確保容器存在
-    // if (!document.querySelector("#smooth-wrapper")) return;
+    const wrapper = document.querySelector("#smooth-wrapper");
+    if (!wrapper) return; // 無容器就跳過
 
-    // smoother = ScrollSmoother.create({
-    //   wrapper: "#smooth-wrapper",
-    //   content: "#smooth-content",
-    //   smooth: 1.5,
-    //   effects: true,
-    // });
+    // 判斷是否為手機（viewport 寬度小於 768px）
+    const isMobile = window.innerWidth < 768;
 
-    // .ttl 與 .ttl-rounded 淡入效果
+    if (!isMobile) {
+      // 3. 桌機端初始化 ScrollSmoother
+      smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 1.5,
+        effects: true,
+      });
+    }
+
+    // 4. gs-fade 淡入動畫（桌機 + 手機皆適用）
     document.querySelectorAll(".gs-fade").forEach((el) => {
       gsap.from(el, {
         scrollTrigger: {
@@ -40,14 +47,14 @@ export default defineNuxtPlugin((nuxtApp) => {
     });
   });
 
-  // 3. 在下一次 page 開始前，先釋放上次的動畫資源
+  // 5. 在下一次 page 開始前，釋放上次資源（page:start hook）
   nuxtApp.hook("page:start", () => {
     ScrollTrigger.getAll().forEach((t) => t.kill());
     smoother?.kill();
     gsap.globalTimeline.clear();
   });
 
-  // 4. 提供 $gsap 讓組件內可用 useNuxtApp().$gsap
+  // 6. 提供 $gsap 給組件使用
   return {
     provide: {
       gsap,
