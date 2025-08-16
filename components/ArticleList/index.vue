@@ -1,14 +1,12 @@
 <script setup>
-
-  const store = useApiStore();
-  const articleArray = ref(store.apiData_2.Data.find(
-    e => e.TypeCode == '07'
-  ).Data)
-  
+const store = useApiStore();
+const articleArray = ref(
+  store.apiData_2.Data.find((e) => e.TypeCode == "07").Data
+);
 </script>
 
 <template lang="pug">
-div#article
+div#article(class="imp_event" data-title="2025obesity" data-label="imp_section-2025obesity-news")
   .container
     h2.ttl(data-aos="fade-up")
       | 相關文章

@@ -8,17 +8,17 @@ const tabs = ref([
   {
     key: "one", // 用作內部邏輯與元件對應
     title: "口服藥物", // 顯示用文字
-    label: "click-Comorb-tab-1",
+    label: "click-Mgmt-tab-1",
   },
   {
     key: "two",
     title: "針劑腸泌素",
-    label: "click-Comorb-tab-2",
+    label: "click-Mgmt-tab-2",
   },
   {
     key: "three",
     title: "手　　術",
-    label: "click-Comorb-tab-3",
+    label: "click-Mgmt-tab-3",
   },
 ]);
 
@@ -38,27 +38,28 @@ const tabComponents = {
 
 <template lang="pug">
 
-#mgmt.bg-cyan-200(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+#mgmt.bg-cyan-200(class="imp_event" data-title="2025obesity" data-label="imp_section-2025obesity-control")
 
   .container
 
-    //- 肥胖成因
-    .ttl
+    //- 體重控管
+    .ttl.gs-fade
       div
         img(src="/assets/img/ttl-icon.svg")
         h2 關於體重管理，除了少吃多動還可以做什麼？
 
-    .content-p
+    .content-p.gs-fade
       p(class="tracking-[-.5px]") 根據台灣肥胖醫學會 2022 年「全台肥胖認知調查」，正在減重的人僅有 14.7% 尋求專業醫師協助。隨著全球各國逐漸認定肥胖為慢性病，英國與日本也逐步將相關藥物納入給付。適時的藥物介入在體重管理中的角色逐漸被肯定；
         span.text-red-500 改變生活型態與飲食習慣的同時，藥物除了能輔助性的改善體重與健康，更可增加信心，讓對抗肥胖之路不再困難重重！
 
+    //- 鏡子女孩
     .ani-1.flex.items-end.justify-center.-mb-8.mt-5
-      img(src="/assets/img/mirror-1.svg" class="w-4/12 max-w-[220px]")
-      img(src="/assets/img/mirror-2.svg" class="w-4/12 max-w-[240px]")
+      img(src="/assets/img/mirror-1.svg" class="w-5/12 md:w-4/12 max-w-[220px]")
+      img(src="/assets/img/mirror-2.svg" class="w-5/12 md:w-4/12 max-w-[240px]")
 
+    //- 引言
     .quotation.max-w-4xl.mx-auto
-      
-      .content-p.text-white
+      .content-p.text-white.gs-fade
         span.top ”
         p 肥胖症成因複雜，別再認為對抗肥胖失敗等於沒有意志力，食慾、脂肪堆積可能無法靠自己控制，諮詢專業醫師，討論專屬您的健康處方！
         span.bottom#mgmt-1 ”
@@ -71,7 +72,7 @@ const tabComponents = {
 
     //- TAB
     .tabs-table
-      div.click_event(v-for='(tab, index) in tabs' :key='index' @click='changeTab(tab.key)' :class="{ 'active': activeTab === tab.key }", data-title="lunghealth", :data-label="tab.label")
+      div.click_event(v-for='(tab, index) in tabs' :key='index' @click='changeTab(tab.key)' :class="{ 'active': activeTab === tab.key }", data-title="2025obesity", :data-label="tab.label")
         span.px-2 {{ tab.title }}
 
     .tabs-table-content.max-w-3xl.mx-auto
@@ -159,6 +160,11 @@ const tabComponents = {
     right: 1rem
     color: white
     font-size: 2rem
+    +m-480
+      width: 45px
+      height: 30px
+      top: -1.85rem
+      right: .55rem
   &::after
     content: ''
     background: url('/assets/img/point.svg')

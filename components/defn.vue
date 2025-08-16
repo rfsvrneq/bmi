@@ -155,7 +155,7 @@ onMounted(() => {
 </script>
 
 <template lang="pug">
-div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="2025obesity" data-label="imp_section-2025obesity-definition")
 
   //- 背景曲線
   .w-full.h-20
@@ -163,12 +163,12 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
   .max-w-6xl.mx-auto.relative
 
     //- 插圖
-    img.w-16.absolute(src="/assets/img/dna-2.svg" data-speed=".65" class="top-[12%] -left-[5%]")
-    img.w-16.absolute(src="/assets/img/dna-1.svg" data-speed=".55" class="top-[20%] -right-[5%]")
+    img.w-16.absolute(src="/assets/img/dna-2.svg" data-speed=".65" class="top-[12%] left-[0%] lg:-left-[5%]")
+    img.w-16.absolute(src="/assets/img/dna-1.svg" data-speed=".55" class="top-[20%] right-[2%] lg:-right-[5%]")
 
     .px-5
       //- 肥胖定義
-      .ttl
+      .ttl.gs-fade
         div
           img(src="/assets/img/ttl-icon.svg")
           h2 該怎麼衡量一個人是否肥胖？只測量體重足夠嗎？
@@ -178,17 +178,17 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
         p(class="tracking-[2px] inline lg:block") 參考脂肪率、腰臀比，掌握全方位健康指標。
 
       .flex.justify-center.items-center.mt-10(class="space-x-0 lg:space-x-10 flex-col md:flex-row mb-8 md:mb-0")
-        .flex.ani-1(class="space-y-3 lg:space-y-8 space-x-4 md:space-x-0 order-2 md:order-none flex-row md:flex-col items-end")
+        .flex.gs-fade(class="space-y-3 lg:space-y-8 space-x-4 md:space-x-0 order-2 md:order-none flex-row md:flex-col items-end")
           img(src="/assets/img/libra-icon-1.svg" class="w-[70px] xs:w-[75px] sm:w-[100px] -mb-1 sm:mb-0")
           img(src="/assets/img/libra-icon-2.svg" class="w-[90px] xs:w-[100px] sm:w-[130px]")
         .libra-girl(class="w-9/12 md:w-[460px] order-1 mb-4 md:mb-0")
           img(src="/assets/img/libra-girl.svg")
-        .flex.ani-1(class="space-y-3 lg:space-y-8 space-x-4 md:space-x-0 order-3 flex-row md:flex-col items-center md:items-center")
+        .flex.gs-fade(class="space-y-3 lg:space-y-8 space-x-4 md:space-x-0 order-3 flex-row md:flex-col items-center md:items-center")
           img(src="/assets/img/libra-icon-3.svg" class="w-[110px] xs:w-[115px] sm:w-[155px] -mb-2 sm:mb-0")
           img(src="/assets/img/libra-icon-4.svg" class="w-[90px] xs:w-[105px] sm:w-[135px]")
           img(src="/assets/img/libra-icon-5.svg" class="w-[100px] xs:w-[105px] sm:w-[140px]")
         
-      .ttl-t.-mt-4.mb-14
+      .ttl-t.-mt-4.mb-14.gs-fade
         div
           img.icon-2(src="/assets/img/ttl-t-icon-2.svg")
           p 建議您，若有過重或肥胖之疑慮，請主動諮詢專業醫師。
@@ -236,7 +236,7 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
                 p.err(v-if="touched && !valid" role="alert") ※ 請輸入正確的身高和體重！
                 //- 按鈕
                 .actions
-                  button.btn.blue(type="submit" data-label="click-LiliBMI-btn-calculator") 立即計算
+                  button.btn.blue(type="submit" class="click_event" data-title="2025obesity" data-label="click-LiliBMI-btn-calculator") 立即計算
                   button.btn.red(type="button" @click="clearFields") 全部清除
               
           //- 結果頁
@@ -261,12 +261,14 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
                   v-if="category.weightUrl"
                   @click="moveTo(category.weightUrl)"
                   :data-label="category.labelWeight"
+                  class="click_event" data-title="2025obesity"
                 ) 體重管理
 
                 button.btn.expert(
                   type="button"
                   @click="moveTo(category.expertUrl)"
                   :data-label="category.labelExpert"
+                  class="click_event" data-title="2025obesity"
                 ) 諮詢專家
 
 
@@ -296,13 +298,14 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
         span(class="inline lg:block") 女性腰圍小於80公分，可遠離三高與代謝症候群的風險。
         img.w-28.absolute(class="-top-14 sm:-top-16 -right-12 sm:-right-10" src="/assets/img/intro-icon-1.svg")
 
-    .flex.justify-center.items-center.mt-14.mb-8.px-5(class="flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0")
+    .flex.justify-center.items-center.mt-14.mb-8.px-5.gs-fade(class="flex-col lg:flex-row space-x-0 lg:space-x-4 space-y-4 lg:space-y-0")
       img.w-20(src="/assets/img/apple.svg")
-      p.text-3xl.font-bold.text-red-200 BMI ≥ 27 應盡速諮詢專業醫師！
-      a.bg-red-200.text-white.rounded-full.py-3.px-6.text-2xl(
+      p.font-bold.text-red-200(class="text-2xl md:text-3xl") BMI ≥ 27 應盡速諮詢專業醫師！
+      a.bg-red-200.text-white.rounded-full.py-3.px-6(
         href="javascript:void(0)"
         @click="moveTo('#experts')"
-        class="hover:bg-red-500"
+        class="hover:bg-red-500 text-xl md:text-2xl click_event"
+        data-title="2025obesity"
         data-label="click-LiliBMI-btn-calculator-expert3"
       ) 諮詢專家 ▶
 
@@ -312,10 +315,10 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
         | ：
 
     .relative
-      img(src="/assets/img/scale-2.svg" class="w-11/12 sm:w-10/12 md:w-7/12 mx-auto z-10 relative")
-      img#bmi-img(src="/assets/img/bmi-img.svg" data-speed="0.75" data-lag="0.2")
+      img.gs-fade(src="/assets/img/scale-2.svg" class="w-11/12 sm:w-10/12 md:w-7/12 mx-auto z-10 relative")
+      img#bmi-img(src="/assets/img/bmi-img.svg" data-speed="0.62" data-lag="0.2")
 
-    .content-p.text-center.mt-8.px-5
+    .content-p.mt-8.px-5(class="text-justify sm:text-center")
       p(class="tracking-[2px] inline lg:block") BMI 的好處是容易取得，缺點是無法了解身體組成；
       p(class="tracking-[2px] inline lg:block") BMI 相同的兩個人，肌肉量與體脂肪比例若有差異，
       p(class="tracking-[2px] inline lg:block") 健康狀況跟慢性病風險則完全不同。
@@ -460,6 +463,10 @@ div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="lunghealth" 
       .scope-txt
         font-weight: bold
         font-size: 1.35rem
+        +m-480
+          font-size: 1.25rem
+        +m-380
+          font-size: 1.15rem
     .unit
       font-size: 1.1rem
   .tip

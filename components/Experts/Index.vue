@@ -107,7 +107,7 @@ const filteredItems = computed(() =>
 
 <template lang="pug">
 
-#experts.bg-cyan-200(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+#experts.bg-cyan-200.overflow-x-hidden(class="imp_event" data-title="2025obesity" data-label="imp_section-2025obesity-expert")
 
   .container.relative
 
@@ -116,7 +116,7 @@ const filteredItems = computed(() =>
     img.w-24.absolute(src="/assets/img/dna-4.svg" data-speed=".55" class="top-[60%] -right-[15%]")
 
     //- 專家地圖
-    .ttl
+    .ttl.gs-fade
       div
         img(src="/assets/img/ttl-icon.svg")
         h2 專科醫師地圖
@@ -127,7 +127,7 @@ const filteredItems = computed(() =>
 
     //- TAB
     .tabs-table
-      div.click_event(v-for='(tab, index) in tabs' :key='index' @click='changeTab(tab.key)' :class="{ 'active': activeTab === tab.key }", data-title="lunghealth", :data-label="tab.label")
+      div.click_event(v-for='(tab, index) in tabs' :key='index' @click='changeTab(tab.key)' :class="{ 'active': activeTab === tab.key }", data-title="2025obesity", :data-label="tab.label")
         span.px-2 {{ tab.title }}
 
     .tabs-table-content

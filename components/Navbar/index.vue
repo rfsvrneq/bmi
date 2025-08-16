@@ -100,7 +100,7 @@ const moveTo = (ta) => {
 
 <template lang="pug">
 //- go
-a#go(@click.prevent="moveTo('#experts')" data-label="click-LiliBMI-btn-calculator-expert4")
+a#go.click_event(@click.prevent="moveTo('#experts')" data-title="2025obesity" data-label="click-LiliBMI-btn-calculator-expert4")
   img(src="/assets/img/go.svg", alt="go")
 
 
@@ -125,7 +125,7 @@ div#topbar(:class="['w-full fixed top-0 left-0', { scrolled: scrollActive }]")
       .nav
         .item
           a.click_event(
-            data-title="lungcancercare"
+            data-title="2025obesity"
             v-for="(nav, index) in nav"
             :href="nav.type"
             :class="{ 'active': isActive === nav.type, 'first-border': index === 0 }"

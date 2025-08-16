@@ -61,7 +61,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template lang="pug">
-div#causes.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+div#causes.bg-cyan-100(class="imp_event" data-title="2025obesity" data-label="imp_section-2025obesity-origin")
 
   //- 背景曲線
   .w-full.h-20
@@ -71,12 +71,12 @@ div#causes.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp
   .container.pt-0
 
     //- 肥胖成因
-    .ttl
+    .ttl.gs-fade
       div
         img(src="/assets/img/ttl-icon.svg")
         h2 你知道嗎？關於肥胖，多的是你不知道的事
 
-    .content-p
+    .content-p.gs-fade
       p(class="tracking-[2.8px]") 肥胖的成因普遍被歸納為個人的生活型態與飲食習慣，因此對體重管理的第一印象常是「少吃多動」。
         span.text-red-500 事實上，肥胖是一種複雜的慢性疾病，肥胖成因也因人而異。
     
@@ -98,7 +98,7 @@ div#causes.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp
         .content-p.mb-10
           p(class="tracking-[-0.5px]") 其他和調控食慾相關的腸道荷爾蒙包含 Ghrelin（胃促生長激素）、PYY（多肽YY）、CCK（膽囊收縮素）等。除了腸道荷爾蒙外，還有許多荷爾蒙掌握著我們的飢餓與飽足感，包含脂肪細胞分泌的 Leptin（瘦體素）、中樞神經分泌的 NPY（神經肽）。
 
-        .rotation-girl(class="w-9/12 md:w-10/12 mx-auto" v-html="rotationgirlSvg")
+        .rotation-girl(class="w-12/12 sm:w-10/12 mx-auto" v-html="rotationgirlSvg")
 
 
     //- 展開/收合
@@ -140,7 +140,7 @@ div#causes.bg-cyan-100(class="imp_event" data-title="lunghealth" data-label="imp
           p 根據全基因組關聯研究（GWAS），影響肥胖或是BMI的基因座（gene locus）超過900個，這些基因可能影響中樞神經系統、脂肪組織、胰島素訊號等多個路徑。其中有20多個基因突變，和肥胖有高度關聯！除了先天的「原生基因」影響，後天成長的環境因素也舉足輕重。家庭的生活習慣、作息與飲食觀念等，也潛在的影響了一個人的健康狀況。
 
 
-    .ttl-t
+    .ttl-t.gs-fade
       div
         img.icon-2(src="/assets/img/ttl-t-icon-2.svg")
         p 肥胖症成因複雜，諮詢專業醫師找出健康處方！

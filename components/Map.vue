@@ -10,16 +10,16 @@ function onCityChange(city) {
 </script>
 
 <template lang="pug">
-div#map.bg-amber-200(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+div#map.bg-amber-200(class="imp_event" data-title="2025obesity" data-label="imp_section-2025obesity-Twmap")
   .container.pt-1
 
     //- 肥胖地圖
-    .ttl
+    .ttl.gs-fade
       div
         img(src="/assets/img/ttl-icon.svg")
         h2 台灣每2人就有1人過重或肥胖，您也是其中之一嗎？
     
-    .content-p.space-y-8
+    .content-p.space-y-8.gs-fade
       p(class="-tracking-[0]") 根據國健署最新「國民營養健康調查」統計
         sup 2
         | ，台灣成人過重或肥胖率已達50.3%，等於每2人就有1人過重或肥胖。

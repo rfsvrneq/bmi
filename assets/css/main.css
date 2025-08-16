@@ -11,7 +11,7 @@
     @apply font-sans font-normal text-gray-900 tracking-wide overflow-x-hidden;
   }
   .container {
-    @apply mx-auto px-5 lg:px-0 py-10 max-w-5xl relative md:py-14;
+    @apply mx-auto px-5 lg:px-0 py-5 sm:py-10 md:py-14 max-w-5xl relative;
   }
 
   .ttl {
@@ -21,13 +21,13 @@
     @apply relative inline-block;
   }
   .ttl img {
-    @apply absolute -left-7 sm:-left-8 sm:-left-12 -top-2 sm:-top-4 w-16 sm:w-20;
+    @apply absolute -left-7 sm:-left-8 md:-left-12 -top-2 sm:-top-4 w-16 sm:w-20;
   }
   .ttl span {
     @apply bg-blue-400 text-white px-4 py-1 rounded-full absolute -top-6 left-14 sm:left-10 text-lg;
   }
   .ttl h2 {
-    @apply text-amber-900 font-bold bg-white inline-block px-9 md:px-10 py-4 rounded-full border-4 border-blue-400 text-2xl xs:text-3xl md:text-[36px];
+    @apply text-amber-900 font-bold bg-white inline-block px-9 md:px-10 py-4 rounded-full border-4 border-blue-400 text-left sm:text-center text-2xl xs:text-[28px] md:text-[36px];
   }
 
   .ttl-t {
@@ -56,7 +56,7 @@
     @apply relative inline-block;
   }
   .ttl-rounded h3 {
-    @apply text-blue-400 font-bold bg-white inline-block mt-3 lg:mt-0 px-10 py-4 rounded-full border-4 border-blue-400 text-xl xs:text-2xl md:text-[30px] leading-tight md:leading-normal;
+    @apply text-blue-400 font-bold bg-white inline-block mt-3 lg:mt-0 px-5 sm:px-10 py-4 rounded-full border-4 border-blue-400 text-xl xs:text-2xl md:text-[30px] leading-tight md:leading-normal;
   }
   .ttl-rounded.drop h3 {
     @apply hover:text-red-500 mr-12;
@@ -80,11 +80,5 @@
   }
   .rounded-btn p {
     @apply inline-block bg-blue-400 px-8 py-2 rounded-full;
-  }
-
-  .ttl-rounded .sup {
-    font-size: 0.75rem;
-    top: -0.55rem;
-    right: 0.1rem;
   }
 }

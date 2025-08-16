@@ -38,7 +38,7 @@ const tabComponents = {
 
 <template lang="pug">
 
-#comorb.bg-cyan-200(class="imp_event" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+#comorb.bg-cyan-200(class="imp_event" data-title="2025obesity" data-label="imp_section-2025obesity-comorbidity")
 
   //- 背景曲線
   .w-full.h-20
@@ -47,12 +47,12 @@ const tabComponents = {
   .container.pt-0
 
     //- 肥胖成因
-    .ttl
+    .ttl.gs-fade
       div
         img(src="/assets/img/ttl-icon.svg")
         h2 肥胖症帶來的共病百百款
 
-    .content-p
+    .content-p.gs-fade
       p(class="tracking-[-.4px]") 
         span.text-red-500 肥胖不僅是一種慢性病，還與200多種疾病息息相關
         | ，包含三高、心血管疾病、代謝性脂肪肝疾病，甚至是癌症。除了藉由調整生活習慣減重，更需要尋求專業協助，及早管理相關共病。
@@ -65,7 +65,7 @@ const tabComponents = {
 
     //- TAB
     .tabs-table
-      div.click_event(v-for='(tab, index) in tabs' :key='index' @click='changeTab(tab.key)' :class="{ 'active': activeTab === tab.key }", data-title="lunghealth", :data-label="tab.label")
+      div.click_event(v-for='(tab, index) in tabs' :key='index' @click='changeTab(tab.key)' :class="{ 'active': activeTab === tab.key }", data-title="2025obesity", :data-label="tab.label")
         span.px-2 {{ tab.title }}
 
     .tabs-table-content.max-w-3xl.mx-auto

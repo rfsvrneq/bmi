@@ -4,7 +4,7 @@ import Slide from "@/components/Slide/index.vue";
 </script>
 
 <template lang="pug">
-div
+div.overflow-x-hidden
   Navbar
 
   div#smooth-wrapper

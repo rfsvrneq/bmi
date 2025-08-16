@@ -5,10 +5,18 @@
       .cls-1 {
         fill: #f2f2f2;
       }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .spin {
+        transform-box: fill-box;
+        transform-origin: center center;
+        animation: spin 10s linear infinite;
+      }
     </style>
   </defs>
   <g id="_圖層_1-2" data-name="圖層 1">
-    <g>
+    <g class="spin">
       <rect class="cls-1" x="28.31" y="30.55" width="14.86" height="3.06" rx="1.53" ry="1.53" transform="translate(-11.41 41.21) rotate(-52.87)"/>
       <rect class="cls-1" x="31.7" y="36.04" width="22.57" height="3.06" rx="1.53" ry="1.53" transform="translate(-12.91 49.17) rotate(-52.87)"/>
       <rect class="cls-1" x="42.81" y="41.53" width="14.86" height="3.06" rx="1.53" ry="1.53" transform="translate(-14.42 57.13) rotate(-52.87)"/>

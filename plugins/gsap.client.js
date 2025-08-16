@@ -25,7 +25,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     });
 
     // .ttl 與 .ttl-rounded 淡入效果
-    document.querySelectorAll(".ttl, .ttl-rounded").forEach((el) => {
+    document.querySelectorAll(".gs-fade").forEach((el) => {
       gsap.from(el, {
         scrollTrigger: {
           trigger: el,

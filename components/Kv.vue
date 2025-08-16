@@ -8,7 +8,7 @@ const imgSrc = `${imgSvg}?v=${version}`;
 
 <template lang="pug">
 
-div#kv(class="imp_event pt-[62px]" data-title="lunghealth" data-label="imp_section-lunghealth-home")
+div#kv.overflow-x-hidden(class="imp_event pt-[62px]" data-title="2025obesity" data-label="imp_section-2025obesity-home")
   client-only
     .kv
       img.kv-title(
@@ -23,7 +23,7 @@ div#kv(class="imp_event pt-[62px]" data-title="lunghealth" data-label="imp_secti
   .container.z-10
 
     //- 前言
-    .ttl.mt-18(class="lg:mt-32")
+    .ttl.gs-fade.mt-18(class="lg:mt-32")
       div
         img(src="/assets/img/ttl-icon.svg")
         h2 您知道肥胖是一種慢性疾病嗎？
@@ -43,8 +43,8 @@ div#kv(class="imp_event pt-[62px]" data-title="lunghealth" data-label="imp_secti
         span(class="inline lg:block") 更是牽涉到社會、經濟以及全球公共衛生的重大挑戰。
         img.w-32.absolute(class="-top-14 sm:-top-20 -right-12 sm:-right-10" src="/assets/img/intro-icon-1.svg")
 
-    img.w-44.absolute.-z-10(src="/assets/img/intro-icon-2.svg" data-speed=".7" class="-left-[15%] top-[45%]")
-    img.w-9.absolute(src="/assets/img/intro-icon-3.svg" data-speed=".5" class="-right-[15%] bottom-[45%]")
+    img.w-44.absolute.-z-10(src="/assets/img/intro-icon-2.svg" data-speed=".6" class="-left-[15%] top-[45%]")
+    img.w-9.absolute(src="/assets/img/intro-icon-3.svg" data-speed=".4" class="-right-[15%] bottom-[45%]")
 
 </template>
 
