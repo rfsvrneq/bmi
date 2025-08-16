@@ -620,6 +620,10 @@ div#defn.bg-amber-100(class="imp_event" data-title="2025obesity" data-label="imp
   left: -5%
   top: 0
   z-index: 0
+  +m-480
+    width: 140px
+    left: 0%
+    top: -15%
 
 
 // 背景曲線
