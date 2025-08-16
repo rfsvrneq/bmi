@@ -19,7 +19,8 @@
       }
 
       .cls-6 {
-        font-family: GenSenRoundedJP-H, 'GenSenRoundedJP H';
+        font-family: "Noto Sans TC", "Microsoft JhengHei";
+        font-weight: bold;
       }
 
       .cls-7 {
@@ -51,7 +52,8 @@
       }
 
       .cls-14, .cls-5 {
-        font-family: FZLTTHB--B51-0, 'Lantinghei TC';
+        font-family: "Noto Sans TC", "Microsoft JhengHei";
+        font-weight: bold;
       }
 
       .cls-15 {
@@ -59,7 +61,8 @@
       }
 
       .cls-4 {
-        font-family: FZLTZHB--B51-0, 'Lantinghei TC';
+        font-family: "Noto Sans TC", "Microsoft JhengHei";
+        font-weight: bold;
         font-size: 26px;
       }
 
