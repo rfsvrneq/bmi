@@ -15,14 +15,14 @@ export default defineNuxtPlugin((nuxtApp) => {
   // 2. 每次 page 完成渲染後才初始化
   nuxtApp.hook("page:finish", () => {
     // 確保容器存在
-    if (!document.querySelector("#smooth-wrapper")) return;
+    // if (!document.querySelector("#smooth-wrapper")) return;
 
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.5,
-      effects: true,
-    });
+    // smoother = ScrollSmoother.create({
+    //   wrapper: "#smooth-wrapper",
+    //   content: "#smooth-content",
+    //   smooth: 1.5,
+    //   effects: true,
+    // });
 
     // .ttl 與 .ttl-rounded 淡入效果
     document.querySelectorAll(".gs-fade").forEach((el) => {

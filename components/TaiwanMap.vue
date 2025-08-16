@@ -86,7 +86,7 @@ watch(currentCity, updateState);
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       version="1.1"
-      viewBox="0 0 1000 880"
+      viewBox="85 0 900 880"
     >
       <defs>
         <filter
@@ -1115,7 +1115,7 @@ watch(currentCity, updateState);
                   class="st34"
                   x1="247.5"
                   y1="622.4"
-                  x2="364.6"
+                  x2="310.6"
                   y2="622.4"
                 />
               </g>
@@ -4171,7 +4171,7 @@ watch(currentCity, updateState);
                     <tspan x="0" y="0">3.8%</tspan>
                   </text>
                 </g>
-                <line class="st34" x1="411.6" y1="473.7" x2="293" y2="473.7" />
+                <line class="st34" x1="381.6" y1="473.7" x2="293" y2="473.7" />
               </g>
               <g id="info-hsinchu">
                 <g class="st33">
@@ -4927,7 +4927,7 @@ watch(currentCity, updateState);
                     <tspan x="0" y="0">5.2%</tspan>
                   </text>
                 </g>
-                <line class="st34" x1="379.4" y1="483.2" x2="293" y2="483.2" />
+                <line class="st34" x1="349" y1="483.2" x2="293" y2="483.2" />
               </g>
               <g id="info-pingtung">
                 <g class="st28">
@@ -5181,7 +5181,7 @@ watch(currentCity, updateState);
                 </g>
                 <polyline
                   class="st34"
-                  points="442.2 693.3 423.7 720.4 293 720.4"
+                  points="412.36 693.3 397.56 720.4 293 720.4"
                 />
               </g>
               <g id="info-taitung">
@@ -6361,6 +6361,21 @@ watch(currentCity, updateState);
 
 .st46
   fill: #e2342b
+
+#region-kinmen, #info-kinmen, #info-kaohsiung
+  transform-box: fill-box
+  transform-origin: 0 0
+  transform: translate(80px, 0px)
+
+#info-pingtung
+  transform-box: fill-box
+  transform-origin: 0 0
+  transform: translate(35px, 0px)
+
+#info-chiayicounty, #info-chiayi
+  transform-box: fill-box
+  transform-origin: 0 0
+  transform: translate(32px, 0px)
 
 
 // 浮動／放大效果
