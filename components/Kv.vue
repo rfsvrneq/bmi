@@ -11,7 +11,7 @@ const imgSrc = `${imgSvg}?v=${version}`;
 div#kv(class="imp_event pt-[62px]" data-title="2025obesity" data-label="imp_section-2025obesity-home")
   client-only
     .kv
-      img.kv-title(
+      img.kv-title.z-10(
         :src="titleSrc"
         alt="BMI>=27 病得不輕?"
       )
