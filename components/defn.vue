@@ -155,7 +155,7 @@ onMounted(() => {
 </script>
 
 <template lang="pug">
-div#defn.bg-amber-100.overflow-hidden(class="imp_event" data-title="2025obesity" data-label="imp_section-2025obesity-definition")
+div#defn.bg-amber-100(class="imp_event" data-title="2025obesity" data-label="imp_section-2025obesity-definition")
 
   //- 背景曲線
   .w-full.h-20
