@@ -41,7 +41,7 @@ div
   p.text-sm.bg-red-300.text-white.inline-block.px-2.tracking-widest.rounded-full.mt-3 疾病
   .flex.flex-wrap.justify-center.content-start
     figure.mt-3(v-for="(tab ,index) in tabContents" :key="index.index" class="w-6/12 md:w-4/12")
-      p.text-center.text-xl.mb-2 {{ tab.title }}
+      p.text-center.mb-2(class="text-lg sm:text-xl") {{ tab.title }}
       img.mx-auto(:src="getImageUrl(tab.img)", class="h-[80px] sm:h-[100px]")
 </template>
 

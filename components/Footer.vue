@@ -8,19 +8,31 @@
       >
         <div>
           <small class="text-sm pr-2">指導單位：</small>
-          <img
-            src="/assets/img/logo-2.png"
-            alt="康健雜誌"
-            class="inline-block w-[340px]"
-          />
+          <a
+            href="https://www.obesity.org.tw/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/assets/img/logo-2.png"
+              alt="康健雜誌"
+              class="inline-block w-[340px]"
+            />
+          </a>
         </div>
         <div>
           <small class="text-sm pr-2">公益夥伴：</small>
-          <img
-            src="/assets/img/logo-3.png"
-            alt="康健雜誌"
-            class="inline-block w-[150px]"
-          />
+          <a
+            href="https://www.lilly.com/tw/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/assets/img/logo-3.png"
+              alt="康健雜誌"
+              class="inline-block w-[150px]"
+            />
+          </a>
         </div>
       </div>
 

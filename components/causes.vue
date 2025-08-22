@@ -74,7 +74,7 @@ div#causes.bg-cyan-100(class="imp_event" data-title="2025obesity" data-label="im
     .ttl.gs-fade
       div
         img(src="/assets/img/ttl-icon.svg")
-        h2 你知道嗎？關於肥胖，多的是你不知道的事
+        h2 關於肥胖，多的是你不知道的事
 
     .content-p.gs-fade
       p(class="tracking-[2.8px]") 肥胖的成因普遍被歸納為個人的生活型態與飲食習慣，因此對體重管理的第一印象常是「少吃多動」。

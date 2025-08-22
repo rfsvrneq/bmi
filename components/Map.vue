@@ -17,13 +17,15 @@ div#map.bg-amber-200(class="imp_event" data-title="2025obesity" data-label="imp_
     .ttl.gs-fade
       div
         img(src="/assets/img/ttl-icon.svg")
-        h2 台灣每2人就有1人過重或肥胖，您也是其中之一嗎？
+        h2 台灣每2人就有1人過重或肥胖，你也是其中之一嗎？
     
     .content-p.space-y-8.gs-fade
       p(class="-tracking-[0]") 根據國健署最新「國民營養健康調查」統計
         sup 2
         | ，台灣成人過重或肥胖率已達50.3%，等於每2人就有1人過重或肥胖。
-      p.tracking-tight 在體育署每年發布的「中華民國運動現況調查」中3，台灣的肥胖率在過去10年上升了5.3%，2024年過重或肥胖率
+      p.tracking-tight 在體育署每年發布的「中華民國運動現況調查」中
+        sup 3
+        | ，台灣的肥胖率在過去10年上升了5.3%，2024年過重或肥胖率
         span.content-span 全台以雲林縣43.1%居冠，六都以高雄市的41.3%為首
         | 。
       p.tracking-tight 美食之都
@@ -39,10 +41,10 @@ div#map.bg-amber-200(class="imp_event" data-title="2025obesity" data-label="imp_
       )
 
     .flex.justify-center.mb-5(class="flex-col items-center md:flex-row md:space-x-4 space-y-1 md:space-y-0")
-      p.text-lg
+      p(class="text-base sm:text-lg")
         img.inline.mr-2(src="/assets/img/map-img-2.svg" class="w-6 md:w-10")
         | 2024年過重或肥胖率
-      p.text-lg
+      p(class="text-base sm:text-lg")
         img.inline.mr-2(src="/assets/img/map-img-1.svg" class="w-6 md:w-10")
         | 過去10年過重或肥胖成長率
 

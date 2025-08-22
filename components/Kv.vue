@@ -26,7 +26,7 @@ div#kv(class="imp_event pt-[62px]" data-title="2025obesity" data-label="imp_sect
     .ttl.gs-fade.mt-18(class="lg:mt-32")
       div
         img(src="/assets/img/ttl-icon.svg")
-        h2 您知道肥胖是一種慢性疾病嗎？
+        h2 你知道肥胖是一種慢性疾病嗎？
 
         
     .content-p.gasp-fade
